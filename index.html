@@ -275,4 +275,141 @@ const PLACES=[
 
 const CC={city:'#185FA5',hotel:'#BA7517',hospital:'#A32D2D',nature:'#3B6D11',restaurant:'#993556',reported:'#FF6B35',school:'#185FA5',bank:'#3B6D11',fuel:'#534AB7',pharmacy:'#0F6E56',supermarket:'#993556'};
 const gc=c=>CC[c]||'#FF6B35';
-const mkIcon=(c,size=11)=>L.divIcon({className:'',html:`<div style="width:${size}px;height:${size}px;background:${c};border-radius:50%;border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,
+const mkIcon=(c,size=11)=>L.divIcon({className:'',html:`<div style="width:${size}px;height:${size}px;background:${c};border-radius:50%;border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,.3)"></div>`,iconSize:[size,size],iconAnchor:[size/2,size/2]});
+
+let marks=[],aFilter='all';
+
+function updCounts(reportedCount){
+  document.getElementById('cc-all').textContent=PLACES.length+reportedCount;
+  ['city','hotel','hospital','nature','restaurant'].forEach(c=>{document.getElementById('cc-'+c).textContent=PLACES.filter(p=>p.cat===c).length;});
+  document.getElementById('cc-reported').textContent=reportedCount;
+  document.getElementById('reported-count').textContent=reportedCount;
+}
+
+function renderMarkers(f,reportedPlaces){
+  marks.forEach(m=>map.removeLayer(m));marks=[];
+  const list=f==='all'?PLACES:f==='reported'?[]:PLACES.filter(p=>p.cat===f);
+  list.forEach(p=>{const m=L.marker([p.lat,p.lng],{icon:mkIcon(gc(p.cat))}).addTo(map).bindPopup(`<b>${p.name}</b><br><span style="font-size:11px;color:#888">${p.desc}</span>`);marks.push(m);});
+  if(f==='all'||f==='reported') renderReportedOnMap(reportedPlaces);
+  renderList(f==='reported'?[]:list);
+}
+
+let reportedMarkers=[];
+function renderReportedOnMap(places){
+  reportedMarkers.forEach(m=>map.removeLayer(m));reportedMarkers=[];
+  places.forEach(p=>{
+    const m=L.marker([p.lat,p.lng],{icon:mkIcon(gc(p.category),13)}).addTo(map)
+      .bindPopup(`<b>${p.name}</b><br><span style="font-size:11px;color:#888">${p.description||p.category}</span><br><span style="font-size:10px;color:#aaa">Added ${p.date_added} · ☁️ Saved in database</span>`);
+    reportedMarkers.push(m);
+  });
+}
+
+function renderReportedList(places){
+  const el=document.getElementById('reported-list');
+  if(!places.length){el.innerHTML='<p style="font-size:11px;color:var(--mu);padding:4px 0">No places added yet.<br>Tap ➕ to add — saves for everyone! 🌍</p>';return;}
+  el.innerHTML=places.map(p=>`<div class="pi" data-lat="${p.lat}" data-lng="${p.lng}"><div class="pn"><span style="width:8px;height:8px;border-radius:50%;background:#FF6B35;display:inline-block;flex-shrink:0"></span>${p.name}</div><div class="pd">${p.category} · ${p.date_added}</div></div>`).join('');
+  document.querySelectorAll('#reported-list .pi').forEach(item=>{item.addEventListener('click',()=>map.flyTo([parseFloat(item.dataset.lat),parseFloat(item.dataset.lng)],16));});
+}
+
+function renderList(list){
+  document.getElementById('pl').innerHTML=list.map(p=>`<div class="pi" data-lat="${p.lat}" data-lng="${p.lng}"><div class="pn"><span style="width:8px;height:8px;border-radius:50%;background:${gc(p.cat)};display:inline-block;flex-shrink:0"></span>${p.name}</div><div class="pd">${p.desc}</div></div>`).join('');
+  document.querySelectorAll('#pl .pi').forEach(item=>{item.addEventListener('click',()=>map.flyTo([parseFloat(item.dataset.lat),parseFloat(item.dataset.lng)],14));});
+}
+
+// ── LOAD FROM DATABASE ──
+let allReported=[];
+async function loadFromDB(){
+  try{
+    const {data,error}=await db.from('places').select('*').order('id',{ascending:false});
+    if(error)throw error;
+    allReported=data||[];
+    updCounts(allReported.length);
+    renderMarkers(aFilter,allReported);
+    renderReportedList(allReported);
+    if(allReported.length)showToast(`☁️ Loaded ${allReported.length} user-added places from database!`);
+  }catch(e){
+    document.getElementById('reported-list').innerHTML='<p style="font-size:11px;color:var(--mu);padding:4px 0">Could not load from database.</p>';
+  }
+}
+loadFromDB();
+
+document.getElementById('sb').addEventListener('click',e=>{
+  const b=e.target.closest('.cb');if(!b||!b.dataset.cat)return;
+  document.querySelectorAll('.cb').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');aFilter=b.dataset.cat;renderMarkers(aFilter,allReported);
+});
+
+// ── SEARCH ──
+const inp=document.getElementById('si'),sg=document.getElementById('sg');let timer;
+inp.addEventListener('input',()=>{
+  clearTimeout(timer);const q=inp.value.trim();if(!q){sg.style.display='none';return;}
+  const all=[...PLACES,...allReported.map(p=>({...p,cat:p.category,desc:p.description}))];
+  const loc=all.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())).slice(0,5);
+  sg.innerHTML=loc.map(p=>`<div class="si-item" data-lat="${p.lat}" data-lng="${p.lng}" data-name="${p.name}"><span class="sd" style="background:${gc(p.cat||p.category)}"></span><div><div class="sn">${p.name}</div><div class="ss">${p.desc||p.description||p.cat}</div></div></div>`).join('');
+  sg.style.display=loc.length?'block':'none';
+  timer=setTimeout(async()=>{try{const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+' Rwanda')}&format=json&limit=3&countrycodes=rw`,{headers:{'Accept-Language':'en'}});const d=await r.json();if(d.length){sg.innerHTML+=d.map(x=>`<div class="si-item" data-lat="${x.lat}" data-lng="${x.lon}" data-name="${x.display_name.split(',')[0]}"><span class="sd" style="background:#aaa"></span><div><div class="sn">${x.display_name.split(',').slice(0,2).join(', ')}</div></div></div>`).join('');sg.style.display='block';}}catch(e){}},700);
+});
+sg.addEventListener('click',e=>{const it=e.target.closest('.si-item');if(!it)return;map.flyTo([parseFloat(it.dataset.lat),parseFloat(it.dataset.lng)],15);inp.value=it.dataset.name;sg.style.display='none';});
+document.addEventListener('click',e=>{if(!e.target.closest('.sw'))sg.style.display='none';});
+
+function locate(){navigator.geolocation.getCurrentPosition(p=>{map.flyTo([p.coords.latitude,p.coords.longitude],15);L.marker([p.coords.latitude,p.coords.longitude],{icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#185FA5;border-radius:50%;border:3px solid white;box-shadow:0 0 0 5px rgba(24,95,165,.2)"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map).bindPopup('<b>You are here</b>').openPopup();},()=>alert('Location access denied.'));}
+document.getElementById('btn-loc').addEventListener('click',locate);
+document.getElementById('m-loc').addEventListener('click',locate);
+const goHome=()=>map.flyTo([-1.9403,29.8739],8);
+document.getElementById('btn-home').addEventListener('click',goHome);
+document.getElementById('m-home').addEventListener('click',goHome);
+
+document.getElementById('b-st').addEventListener('click',()=>{if(aBase==='street')return;map.removeLayer(saTile);stTile.addTo(map);aBase='street';document.getElementById('b-st').classList.add('active');document.getElementById('b-sa').classList.remove('active');});
+document.getElementById('b-sa').addEventListener('click',()=>{if(aBase==='sat')return;map.removeLayer(stTile);saTile.addTo(map);aBase='sat';document.getElementById('b-sa').classList.add('active');document.getElementById('b-st').classList.remove('active');});
+
+// ── ADD PLACE MODE ──
+let addMode=false,pendingLatLng=null;
+function toggleAddMode(on){addMode=on;document.getElementById('add-banner').style.display=on?'block':'none';document.getElementById('btn-add').classList.toggle('on',on);document.getElementById('m-add').classList.toggle('on',on);map.getContainer().style.cursor=on?'crosshair':'';}
+document.getElementById('btn-add').addEventListener('click',()=>toggleAddMode(!addMode));
+document.getElementById('m-add').addEventListener('click',()=>toggleAddMode(!addMode));
+map.on('click',function(e){if(!addMode)return;pendingLatLng=e.latlng;document.getElementById('modal-coords').textContent=`📌 ${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`;document.getElementById('m-name').value='';document.getElementById('m-desc').value='';document.getElementById('modal-overlay').classList.add('show');toggleAddMode(false);});
+document.getElementById('modal-cancel').addEventListener('click',()=>{document.getElementById('modal-overlay').classList.remove('show');pendingLatLng=null;});
+
+// ── SAVE TO DATABASE ──
+document.getElementById('modal-save').addEventListener('click',async()=>{
+  const name=document.getElementById('m-name').value.trim();
+  if(!name){document.getElementById('m-name').focus();return;}
+  const category=document.getElementById('m-cat').value;
+  const description=document.getElementById('m-desc').value.trim();
+  const date_added=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+  const place={name,category,description,lat:pendingLatLng.lat,lng:pendingLatLng.lng,date_added};
+
+  document.getElementById('modal-save').textContent='Saving...';
+  const {error}=await db.from('places').insert([place]);
+
+  if(error){
+    showToast('❌ Failed to save — try again');
+    document.getElementById('modal-save').textContent='✓ Save to Database';
+    return;
+  }
+
+  document.getElementById('modal-overlay').classList.remove('show');
+  document.getElementById('modal-save').textContent='✓ Save to Database';
+  map.flyTo([pendingLatLng.lat,pendingLatLng.lng],16);
+  showToast(`✅ "${name}" saved to database for everyone! 🌍`);
+  pendingLatLng=null;
+  await loadFromDB();
+});
+
+document.getElementById('modal-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('modal-overlay'))document.getElementById('modal-overlay').classList.remove('show');});
+
+// ── OSM IMPORT ──
+let osmTotal=0;
+async function loadOSM(cat,key,val,color){
+  const card=document.querySelector(`[data-osm="${cat}"]`);const countEl=document.getElementById('oc-'+cat);if(card.classList.contains('loaded'))return;
+  card.classList.add('loading');countEl.textContent='loading...';
+  const q=`[out:json][timeout:25];area["ISO3166-1"="RW"]->.r;(node["${key}"="${val}"](area.r);way["${key}"="${val}"](area.r););out center 300;`;
+  try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();let count=0;(data.elements||[]).forEach(el=>{const lat=el.lat||(el.center&&el.center.lat);const lng=el.lon||(el.center&&el.center.lon);if(!lat||!lng)return;const name=(el.tags&&(el.tags.name||el.tags['name:en']))||cat;L.marker([lat,lng],{icon:mkIcon(color)}).addTo(map).bindPopup(`<b>${name}</b><br><span style="font-size:11px;color:#888">${cat}</span>`);count++;});osmTotal+=count;card.classList.remove('loading');card.classList.add('loaded');countEl.textContent=count+' places';document.getElementById('ot').textContent=osmTotal.toLocaleString();}catch(e){card.classList.remove('loading');countEl.textContent='failed — retry';}
+}
+document.getElementById('og').addEventListener('click',e=>{const c=e.target.closest('.oc');if(!c)return;loadOSM(c.dataset.osm,c.dataset.key,c.dataset.val,c.dataset.color);});
+document.getElementById('iab').addEventListener('click',async()=>{const btn=document.getElementById('iab');btn.disabled=true;btn.textContent='Importing...';for(const c of document.querySelectorAll('.oc')){await loadOSM(c.dataset.osm,c.dataset.key,c.dataset.val,c.dataset.color);await new Promise(r=>setTimeout(r,600));}btn.textContent='✅ All done!';});
+
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',4000);}
+</script>
+</body>
+</html>
