@@ -19,47 +19,96 @@
     .search-pill em{font-style:normal;color:var(--mu);font-size:14px;}
     #si{flex:1;border:none;outline:none;background:transparent;font-family:'Sora',sans-serif;font-size:14px;color:var(--tx);}
     #si::placeholder{color:var(--mu);}
-    #sg{position:absolute;top:calc(100% + 6px);left:0;right:0;background:white;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.15);display:none;z-index:9999;max-height:260px;overflow-y:auto;}
-    .si-item{padding:10px 14px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(0,0,0,.04);}
-    .si-item:last-child{border-bottom:none;}
-    .si-item:hover{background:#f8f8f8;}
-    .sd{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-    .sn{font-weight:500;font-size:13px;}.ss{font-size:11px;color:var(--mu);}
     .top-btn{width:36px;height:36px;border-radius:50%;border:none;background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,.15);flex-shrink:0;}
     #weather{position:absolute;top:62px;right:12px;z-index:999;background:white;border-radius:12px;padding:6px 10px;box-shadow:0 2px 8px rgba(0,0,0,.12);display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--tx);}
     #map{position:absolute;top:0;left:0;right:0;bottom:56px;}
     #right-controls{position:absolute;right:12px;bottom:80px;z-index:999;display:flex;flex-direction:column;gap:8px;}
-    .map-ctrl{width:40px;height:40px;border-radius:12px;border:none;background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+    .map-ctrl{width:40px;height:40px;border-radius:12px;border:none;background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,.15);font-family:'Sora',sans-serif;font-weight:600;}
     .map-ctrl.active{background:var(--green);color:white;}
     #zoom-btns{display:flex;flex-direction:column;background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.15);}
-    .zoom-btn{width:40px;height:40px;border:none;background:transparent;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;color:var(--tx);}
+    .zoom-btn{width:40px;height:40px;border:none;background:transparent;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:var(--tx);}
     .zoom-btn:hover{background:#f5f5f5;}
     .zoom-divider{height:1px;background:rgba(0,0,0,0.08);}
     #bottom-nav{position:absolute;bottom:0;left:0;right:0;height:56px;background:white;border-top:1px solid rgba(0,0,0,0.08);display:flex;align-items:center;z-index:1000;box-shadow:0 -2px 12px rgba(0,0,0,.08);}
-    .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;padding:6px 0;color:var(--mu);transition:all 0.15s;}
+    .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;padding:6px 0;color:var(--mu);}
     .nav-item:hover,.nav-item.active{color:var(--green);}
     .nav-item svg{width:22px;height:22px;fill:currentColor;}
     .nav-item span{font-size:10px;font-weight:500;}
-    #dir-panel{position:absolute;bottom:64px;left:12px;right:12px;z-index:2000;background:white;border-radius:20px;padding:16px;box-shadow:0 8px 32px rgba(0,0,0,.2);display:none;}
-    #dir-panel.show{display:block;}
-    .dir-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-    .dir-title-text{font-size:15px;font-weight:600;color:var(--tx);}
-    .dir-close{background:none;border:none;cursor:pointer;font-size:18px;color:var(--mu);}
-    .dir-inputs{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
-    .dir-input-row{display:flex;align-items:center;gap:8px;background:#f5f5f3;border-radius:10px;padding:10px 12px;}
-    .dir-dot-icon{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
-    .dir-input{flex:1;border:none;outline:none;background:transparent;font-family:'Sora',sans-serif;font-size:13px;color:var(--tx);}
-    .dir-input::placeholder{color:var(--mu);}
-    .dir-sug{position:absolute;left:12px;right:12px;background:white;border-radius:12px;z-index:9999;max-height:180px;overflow-y:auto;display:none;box-shadow:0 4px 20px rgba(0,0,0,.15);}
-    .dir-sug-item{padding:10px 14px;font-size:13px;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.04);}
+    #search-overlay{position:absolute;top:0;left:0;right:0;bottom:56px;background:white;z-index:2000;display:none;flex-direction:column;overflow:hidden;}
+    #search-overlay.show{display:flex;}
+    #so-header{padding:12px 12px 8px;display:flex;gap:8px;align-items:center;border-bottom:1px solid rgba(0,0,0,.06);}
+    #so-back{width:36px;height:36px;border-radius:50%;border:none;background:#f5f5f3;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .so-search-row{flex:1;display:flex;align-items:center;gap:8px;background:#f5f5f3;border-radius:99px;padding:8px 14px;}
+    .so-search-row em{font-style:normal;color:var(--mu);}
+    #so-input{flex:1;border:none;outline:none;background:transparent;font-family:'Sora',sans-serif;font-size:14px;color:var(--tx);}
+    #so-input::placeholder{color:var(--mu);}
+    #so-clear{border:none;background:none;cursor:pointer;font-size:16px;color:var(--mu);display:none;}
+    .so-tabs{display:flex;padding:0 16px;border-bottom:1px solid rgba(0,0,0,.06);}
+    .so-tab{padding:10px 16px;font-size:13px;font-weight:500;color:var(--mu);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;}
+    .so-tab.active{color:var(--green);border-bottom-color:var(--green);}
+    #so-content{flex:1;overflow-y:auto;}
+    .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.06);padding:1px;}
+    .cat-cell{background:white;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px 8px;cursor:pointer;}
+    .cat-cell:hover{background:#f8f8f8;}
+    .cat-icon-wrap{width:52px;height:52px;border-radius:50%;background:#f5f5f3;display:flex;align-items:center;justify-content:center;font-size:24px;}
+    .cat-cell-name{font-size:11px;color:var(--tx);text-align:center;font-weight:500;line-height:1.3;}
+    .sr-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;}
+    .sr-item:hover{background:#f8f8f8;}
+    .sr-icon{width:40px;height:40px;border-radius:10px;background:#f5f5f3;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+    .sr-name{font-size:14px;font-weight:500;color:var(--tx);}
+    .sr-sub{font-size:12px;color:var(--mu);margin-top:2px;}
+    .sr-add-item{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;}
+    .sr-add-icon{width:32px;height:32px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:white;font-size:18px;flex-shrink:0;}
+    .hist-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;}
+    .hist-item:hover{background:#f8f8f8;}
+    .hist-icon{width:36px;height:36px;border-radius:50%;background:#f5f5f3;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+    .hist-name{font-size:14px;color:var(--tx);}
+    .hist-sub{font-size:11px;color:var(--mu);}
+    #place-card{position:absolute;bottom:56px;left:0;right:0;z-index:1500;background:white;border-radius:20px 20px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.15);transform:translateY(100%);transition:transform 0.3s ease;max-height:70vh;overflow-y:auto;}
+    #place-card.show{transform:translateY(0);}
+    .pc-handle{width:36px;height:4px;background:#ddd;border-radius:99px;margin:10px auto 0;}
+    .pc-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;background:#f5f5f3;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--mu);}
+    .pc-body{padding:14px 16px 20px;}
+    .pc-name{font-size:18px;font-weight:700;color:var(--tx);margin-bottom:4px;}
+    .pc-sub{font-size:13px;color:var(--mu);margin-bottom:10px;}
+    .pc-meta{display:flex;gap:16px;margin-bottom:14px;}
+    .pc-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mu);}
+    .pc-coords{font-size:11px;color:var(--mu);background:#f5f5f3;padding:6px 10px;border-radius:8px;margin-bottom:14px;font-family:monospace;}
+    .pc-actions{display:flex;gap:10px;}
+    .pc-action-main{flex:1;padding:12px;border-radius:12px;border:none;background:var(--blue);color:white;font-family:'Sora',sans-serif;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+    .pc-action-sec{width:44px;height:44px;border-radius:12px;border:1px solid var(--bdr);background:white;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;}
+    .pc-nearby{display:flex;gap:8px;margin-top:14px;overflow-x:auto;padding-bottom:4px;}
+    .pc-nearby-btn{padding:7px 14px;border-radius:99px;border:1px solid var(--bdr);background:white;font-family:'Sora',sans-serif;font-size:12px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:5px;}
+    #dir-panel{position:absolute;bottom:56px;left:0;right:0;z-index:1500;background:white;border-radius:20px 20px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.15);transform:translateY(100%);transition:transform 0.3s ease;}
+    #dir-panel.show{transform:translateY(0);}
+    .dp-handle{width:36px;height:4px;background:#ddd;border-radius:99px;margin:10px auto 6px;}
+    .dp-header{display:flex;align-items:center;justify-content:space-between;padding:8px 16px 12px;}
+    .dp-title{font-size:16px;font-weight:700;color:var(--tx);}
+    .dp-done{padding:6px 14px;border-radius:99px;border:none;background:var(--blue);color:white;font-family:'Sora',sans-serif;font-size:13px;font-weight:600;cursor:pointer;}
+    .dp-inputs{padding:0 16px 12px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid rgba(0,0,0,.06);}
+    .dp-input-row{display:flex;align-items:center;gap:10px;background:#f5f5f3;border-radius:10px;padding:10px 12px;position:relative;}
+    .dp-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+    .dp-input{flex:1;border:none;outline:none;background:transparent;font-family:'Sora',sans-serif;font-size:13px;color:var(--tx);}
+    .dp-input::placeholder{color:var(--mu);}
+    .dp-add-stop{display:flex;align-items:center;gap:10px;padding:8px 16px;cursor:pointer;color:var(--mu);font-size:13px;}
+    .tp-modes{display:flex;gap:0;padding:0;border-bottom:1px solid rgba(0,0,0,.06);overflow-x:auto;}
+    .tp-mode{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 8px;cursor:pointer;color:var(--mu);border-bottom:3px solid transparent;min-width:60px;}
+    .tp-mode.active{color:var(--blue);border-bottom-color:var(--blue);}
+    .tp-mode svg{width:20px;height:20px;fill:currentColor;margin-bottom:3px;}
+    .tp-mode-time{font-size:12px;font-weight:600;}
+    .tp-mode-label{font-size:10px;}
+    .dp-routes{padding:10px 16px;max-height:180px;overflow-y:auto;}
+    .dp-route{padding:12px;border-radius:12px;background:#f5f5f3;margin-bottom:8px;cursor:pointer;border:2px solid transparent;}
+    .dp-route.selected{background:#EEF4FF;border-color:var(--blue);}
+    .dp-route-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+    .dp-route-time{font-size:16px;font-weight:700;color:var(--tx);}
+    .dp-tag{padding:3px 8px;border-radius:99px;font-size:11px;font-weight:500;}
+    .dp-tag-walk{background:#f5f5f3;color:var(--mu);}
+    .dp-route-sub{font-size:11px;color:var(--mu);}
+    .dp-go-btn{width:calc(100% - 32px);margin:0 16px 16px;padding:14px;border-radius:14px;border:none;background:var(--blue);color:white;font-family:'Sora',sans-serif;font-size:15px;font-weight:700;cursor:pointer;}
+    .dir-sug{position:absolute;left:0;right:0;background:white;z-index:9999;max-height:200px;overflow-y:auto;border-bottom:1px solid rgba(0,0,0,.06);}
+    .dir-sug-item{padding:10px 16px;font-size:13px;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.04);display:flex;align-items:center;gap:10px;}
     .dir-sug-item:hover{background:#f8f8f8;}
-    .dir-go-btn{width:100%;padding:12px;border-radius:12px;border:none;background:var(--green);color:white;font-family:'Sora',sans-serif;font-size:14px;font-weight:600;cursor:pointer;}
-    .dir-go-btn:disabled{background:#ccc;}
-    .dir-result-bar{display:none;margin-top:10px;background:#f5f5f3;border-radius:10px;padding:10px 14px;}
-    .dir-result-bar.show{display:flex;align-items:center;justify-content:space-around;}
-    .dir-stat-val{font-size:20px;font-weight:700;color:var(--tx);text-align:center;}
-    .dir-stat-label{font-size:10px;color:var(--mu);text-align:center;}
-    .dir-clear{width:100%;padding:8px;border-radius:10px;border:1px solid var(--bdr);background:transparent;font-family:'Sora',sans-serif;font-size:13px;cursor:pointer;color:var(--mu);margin-top:6px;}
     #modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9000;display:none;align-items:flex-end;justify-content:center;}
     #modal-overlay.show{display:flex;}
     #modal{background:white;border-radius:24px 24px 0 0;padding:20px;width:100%;max-width:500px;}
@@ -117,7 +166,7 @@
 <body>
 <div id="top-bar">
   <div class="logo-pill" id="menu-btn"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Rwanda</div>
-  <div class="search-pill"><em>🔍</em><input id="si" type="text" placeholder="Search places, streets..." autocomplete="off"/><div id="sg"></div></div>
+  <div class="search-pill" id="search-trigger"><em>🔍</em><input id="si" type="text" placeholder="Search places, streets..." autocomplete="off" readonly/></div>
   <button class="top-btn" id="btn-loc">📍</button>
 </div>
 <div id="weather">☀️ <span id="weather-temp">--°C</span></div>
@@ -125,52 +174,83 @@
 <div id="status"></div>
 <div id="add-banner">📍 Tap on the map to place a pin</div>
 <div id="right-controls">
-  <div id="zoom-btns">
-    <button class="zoom-btn" id="zoom-in">+</button>
-    <div class="zoom-divider"></div>
-    <button class="zoom-btn" id="zoom-out">−</button>
-  </div>
-  <button class="map-ctrl" id="btn-3d">3D</button>
+  <div id="zoom-btns"><button class="zoom-btn" id="zoom-in">+</button><div class="zoom-divider"></div><button class="zoom-btn" id="zoom-out">−</button></div>
   <button class="map-ctrl" id="btn-sat">🛰</button>
   <button class="map-ctrl" id="btn-home">🇷🇼</button>
 </div>
-<div id="dir-panel">
-  <div class="dir-header"><div class="dir-title-text">🗺️ Get Directions</div><button class="dir-close" onclick="closeDirPanel()">✕</button></div>
-  <div class="dir-inputs">
-    <div class="dir-input-row"><div class="dir-dot-icon" style="background:#1D9E75"></div><input class="dir-input" id="dir-from" placeholder="From: My location or type..." autocomplete="off"/></div>
-    <div class="dir-input-row"><div class="dir-dot-icon" style="background:#E53935"></div><input class="dir-input" id="dir-to" placeholder="To: Search destination..." autocomplete="off"/></div>
-  </div>
-  <div class="dir-sug" id="dir-from-sug"></div>
-  <div class="dir-sug" id="dir-to-sug"></div>
-  <button class="dir-go-btn" id="dir-go-btn">Get Directions →</button>
-  <div class="dir-result-bar" id="dir-result">
-    <div><div class="dir-stat-val" id="dir-dist">—</div><div class="dir-stat-label">Distance</div></div>
-    <div style="font-size:24px;color:var(--green)">→</div>
-    <div><div class="dir-stat-val" id="dir-time">—</div><div class="dir-stat-label">Est. time</div></div>
-  </div>
-  <button class="dir-clear" id="dir-clear-btn">✕ Clear route</button>
-</div>
 <div id="bottom-nav">
-  <div class="nav-item active" id="nav-map">
-    <svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
-    <span>Map</span>
+  <div class="nav-item active" id="nav-map"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg><span>Map</span></div>
+  <div class="nav-item" id="nav-nav" onclick="openDirPanel()"><svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg><span>Navigate</span></div>
+  <div class="nav-item" id="nav-add" onclick="toggleAddMode()"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg><span>Add Place</span></div>
+  <div class="nav-item" id="nav-layers" onclick="toggleSidePanel()"><svg viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg><span>Layers</span></div>
+  <div class="nav-item" id="nav-search" onclick="openSearch()"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg><span>Search</span></div>
+</div>
+<div id="search-overlay">
+  <div id="so-header">
+    <button id="so-back" onclick="closeSearch()">←</button>
+    <div class="so-search-row"><em>🔍</em><input id="so-input" type="text" placeholder="Search places, streets..." autocomplete="off"/><button id="so-clear" onclick="clearSOInput()">✕</button></div>
   </div>
-  <div class="nav-item" id="nav-nav" onclick="toggleDirPanel()">
-    <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
-    <span>Navigate</span>
+  <div class="so-tabs">
+    <div class="so-tab active" id="tab-cat" onclick="switchTab('cat')">Categories</div>
+    <div class="so-tab" id="tab-hist" onclick="switchTab('hist')">History</div>
   </div>
-  <div class="nav-item" id="nav-add" onclick="toggleAddMode()">
-    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-    <span>Add Place</span>
+  <div id="so-content">
+    <div id="so-cats" class="cat-grid">
+      <div class="cat-cell" onclick="searchCategory('restaurant','🍽️')"><div class="cat-icon-wrap">🍽️</div><div class="cat-cell-name">Restaurants</div></div>
+      <div class="cat-cell" onclick="searchCategory('hospital','🏥')"><div class="cat-icon-wrap">🏥</div><div class="cat-cell-name">Hospitals</div></div>
+      <div class="cat-cell" onclick="searchCategory('supermarket','🛒')"><div class="cat-icon-wrap">🛒</div><div class="cat-cell-name">Groceries</div></div>
+      <div class="cat-cell" onclick="searchCategory('pharmacy','💊')"><div class="cat-icon-wrap">💊</div><div class="cat-cell-name">Pharmacies</div></div>
+      <div class="cat-cell" onclick="searchCategory('bank','🏦')"><div class="cat-icon-wrap">🏦</div><div class="cat-cell-name">ATMs & Banks</div></div>
+      <div class="cat-cell" onclick="searchCategory('fuel','⛽')"><div class="cat-icon-wrap">⛽</div><div class="cat-cell-name">Gas Stations</div></div>
+      <div class="cat-cell" onclick="searchCategory('hotel','🏨')"><div class="cat-icon-wrap">🏨</div><div class="cat-cell-name">Hotels</div></div>
+      <div class="cat-cell" onclick="searchCategory('school','🏫')"><div class="cat-icon-wrap">🏫</div><div class="cat-cell-name">Schools</div></div>
+      <div class="cat-cell" onclick="searchCategory('nature','🌿')"><div class="cat-icon-wrap">🌿</div><div class="cat-cell-name">Parks & Nature</div></div>
+      <div class="cat-cell" onclick="searchCategory('city','🏙️')"><div class="cat-icon-wrap">🏙️</div><div class="cat-cell-name">Cities & Towns</div></div>
+      <div class="cat-cell" onclick="searchCategoryOSM('amenity','cafe','☕')"><div class="cat-icon-wrap">☕</div><div class="cat-cell-name">Cafes</div></div>
+      <div class="cat-cell" onclick="searchCategoryOSM('amenity','police','👮')"><div class="cat-icon-wrap">👮</div><div class="cat-cell-name">Police</div></div>
+    </div>
+    <div id="so-results" style="display:none"></div>
+    <div id="so-hist" style="display:none"></div>
   </div>
-  <div class="nav-item" id="nav-layers" onclick="toggleSidePanel()">
-    <svg viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg>
-    <span>Layers</span>
+</div>
+<div id="place-card">
+  <div class="pc-handle"></div>
+  <button class="pc-close" onclick="closePlaceCard()">✕</button>
+  <div class="pc-body">
+    <div class="pc-name" id="pc-name">Place Name</div>
+    <div class="pc-sub" id="pc-sub">Category · Rwanda</div>
+    <div class="pc-meta"><div class="pc-meta-item">📍 <span id="pc-dist">—</span></div><div class="pc-meta-item">⏱ <span id="pc-time">—</span></div></div>
+    <div class="pc-coords" id="pc-coords">—</div>
+    <div class="pc-actions">
+      <button class="pc-action-main" id="pc-dir-btn" onclick="startDirectionsFromCard()">➤ Directions</button>
+      <button class="pc-action-sec" onclick="sharePlaceCard()">↗</button>
+      <button class="pc-action-sec" onclick="savePlaceCard()">🔖</button>
+    </div>
+    <div class="pc-nearby">
+      <button class="pc-nearby-btn" onclick="findNearby('restaurant')">🍽️ Restaurants</button>
+      <button class="pc-nearby-btn" onclick="findNearby('hospital')">🏥 Hospitals</button>
+      <button class="pc-nearby-btn" onclick="findNearby('fuel')">⛽ Fuel</button>
+      <button class="pc-nearby-btn" onclick="findNearby('bank')">🏦 ATM</button>
+    </div>
   </div>
-  <div class="nav-item" id="nav-search" onclick="document.getElementById('si').focus()">
-    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-    <span>Search</span>
+</div>
+<div id="dir-panel">
+  <div class="dp-handle"></div>
+  <div class="dp-header"><div class="dp-title">Directions</div><button class="dp-done" onclick="closeDirPanel()">Done</button></div>
+  <div class="dp-inputs">
+    <div class="dp-input-row"><div class="dp-dot" style="background:var(--green)"></div><input class="dp-input" id="dir-from" placeholder="Current location" autocomplete="off"/><span style="color:var(--mu);font-size:12px;cursor:pointer" onclick="document.getElementById('dir-from').value='';dirFromCoords=null;">✕</span></div>
+    <div class="dp-input-row"><div class="dp-dot" style="background:#1a1a18"></div><input class="dp-input" id="dir-to" placeholder="Choose destination" autocomplete="off"/><span style="color:var(--mu);font-size:12px;cursor:pointer" onclick="document.getElementById('dir-to').value='';dirToCoords=null;">✕</span></div>
+    <div id="dir-from-sug" class="dir-sug"></div>
+    <div id="dir-to-sug" class="dir-sug"></div>
   </div>
+  <div class="dp-add-stop" onclick="showToast('Add stop — coming soon!')"><span>+</span> Add stop</div>
+  <div class="tp-modes" id="tp-modes">
+    <div class="tp-mode active" data-mode="drive" onclick="selectMode('drive')"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg><div class="tp-mode-time" id="mode-drive-time">—</div><div class="tp-mode-label">Drive</div></div>
+    <div class="tp-mode" data-mode="walk" onclick="selectMode('walk')"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg><div class="tp-mode-time" id="mode-walk-time">—</div><div class="tp-mode-label">Walk</div></div>
+    <div class="tp-mode" data-mode="cycle" onclick="selectMode('cycle')"><svg viewBox="0 0 24 24"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg><div class="tp-mode-time" id="mode-cycle-time">—</div><div class="tp-mode-label">Cycle</div></div>
+  </div>
+  <div class="dp-routes" id="dp-routes"><p style="font-size:13px;color:var(--mu);text-align:center;padding:20px 0">Set your destination to see routes</p></div>
+  <button class="dp-go-btn" id="dp-go-btn" onclick="startNavigation()">Let's go →</button>
 </div>
 <div id="sp-overlay" onclick="closeSidePanel()"></div>
 <div id="side-panel">
@@ -184,10 +264,7 @@
       <div class="admin-row"><div style="width:10px;height:10px;border-radius:2px;background:#A32D2D;flex-shrink:0"></div><div class="admin-info"><div class="admin-name">Cells</div><div class="admin-sub">2,148 · points</div></div><button class="admin-btn load" data-level="7" data-label="Cell">Load</button></div>
       <div class="admin-row"><div style="width:10px;height:10px;border-radius:50%;background:#993556;flex-shrink:0"></div><div class="admin-info"><div class="admin-name">Villages</div><div class="admin-sub">~14,837 · points</div></div><button class="admin-btn load" data-level="8" data-label="Village">Load</button></div>
     </div>
-    <div style="margin-top:8px;display:flex;gap:6px;">
-      <button id="load-all-admin" style="flex:1;padding:7px;border-radius:8px;border:none;background:var(--green);color:white;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;cursor:pointer;">⬇ Load All</button>
-      <button id="clear-admin" style="padding:7px 10px;border-radius:8px;border:1px solid var(--bdr);background:transparent;font-family:'Sora',sans-serif;font-size:11px;cursor:pointer;color:var(--mu);">Clear</button>
-    </div>
+    <div style="margin-top:8px;display:flex;gap:6px;"><button id="load-all-admin" style="flex:1;padding:7px;border-radius:8px;border:none;background:var(--green);color:white;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;cursor:pointer;">⬇ Load All</button><button id="clear-admin" style="padding:7px 10px;border-radius:8px;border:1px solid var(--bdr);background:transparent;font-family:'Sora',sans-serif;font-size:11px;cursor:pointer;color:var(--mu);">Clear</button></div>
   </div>
   <div class="sp-section">
     <div class="sp-label">Places</div>
@@ -233,33 +310,53 @@
 <script>
 const SUPA_URL='https://ylxttsdvnuvxmwaqbcxw.supabase.co';
 const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlseHR0c2R2bnV2eG13YXFiY3h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MTU3NTEsImV4cCI6MjA5NjA5MTc1MX0.GASVd1C_y_7X-B2X8iY6NljbwmxBLywmfVXiNHHEThA';
-const{createClient}=supabase;
-const db=createClient(SUPA_URL,SUPA_KEY);
+const{createClient}=supabase;const db=createClient(SUPA_URL,SUPA_KEY);
 const map=L.map('map',{zoomControl:false}).setView([-1.9403,29.8739],8);
-const tiles={street:L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CartoDB',maxZoom:19}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'© Esri',maxZoom:19})};
+const tiles={street:L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© CartoDB © OSM',maxZoom:19}),satellite:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'© Esri',maxZoom:19})};
 tiles.street.addTo(map);let activeBase='street';
 document.getElementById('zoom-in').addEventListener('click',()=>map.zoomIn());
 document.getElementById('zoom-out').addEventListener('click',()=>map.zoomOut());
 document.getElementById('btn-sat').addEventListener('click',()=>{const btn=document.getElementById('btn-sat');if(activeBase==='street'){map.removeLayer(tiles.street);tiles.satellite.addTo(map);activeBase='sat';btn.classList.add('active');}else{map.removeLayer(tiles.satellite);tiles.street.addTo(map);activeBase='street';btn.classList.remove('active');}});
-document.getElementById('btn-3d').addEventListener('click',()=>{const btn=document.getElementById('btn-3d');btn.classList.toggle('active');if(btn.classList.contains('active')){map.setZoom(17);showToast('🏢 Zoom into Kigali to see buildings!');}else showToast('3D off');});
 document.getElementById('btn-home').addEventListener('click',()=>map.flyTo([-1.9403,29.8739],8));
 async function loadWeather(){try{const res=await fetch('https://api.open-meteo.com/v1/forecast?latitude=-1.9403&longitude=29.8739&current_weather=true');const data=await res.json();const temp=Math.round(data.current_weather.temperature);const code=data.current_weather.weathercode;const icon=code<=1?'☀️':code<=3?'⛅':code<=67?'🌧️':'⛈️';document.getElementById('weather').innerHTML=`${icon} <span>${temp}°C</span>`;}catch(e){}}
 loadWeather();
+let searchHistory=JSON.parse(localStorage.getItem('rw_search_hist')||'[]');
+function addToHistory(name,lat,lng,cat){searchHistory=searchHistory.filter(h=>h.name!==name);searchHistory.unshift({name,lat,lng,cat,time:Date.now()});if(searchHistory.length>20)searchHistory=searchHistory.slice(0,20);localStorage.setItem('rw_search_hist',JSON.stringify(searchHistory));}
+function renderHistory(){const el=document.getElementById('so-hist');if(!searchHistory.length){el.innerHTML='<p style="padding:20px;font-size:13px;color:var(--mu);text-align:center">No search history yet</p>';return;}el.innerHTML=searchHistory.map(h=>`<div class="hist-item" onclick="selectSearchResult('${h.name.replace(/'/g,"\\'")}',${h.lat},${h.lng},'${h.cat||'place'}')"><div class="hist-icon">🕐</div><div><div class="hist-name">${h.name}</div><div class="hist-sub">${h.cat||'Place'}</div></div></div>`).join('');}
+function openSearch(){document.getElementById('search-overlay').classList.add('show');document.getElementById('so-input').focus();switchTab('cat');}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('show');}
+document.getElementById('search-trigger').addEventListener('click',openSearch);
+function clearSOInput(){document.getElementById('so-input').value='';document.getElementById('so-clear').style.display='none';document.getElementById('so-results').style.display='none';document.getElementById('so-cats').style.display='grid';switchTab('cat');}
+function switchTab(tab){document.getElementById('tab-cat').classList.toggle('active',tab==='cat');document.getElementById('tab-hist').classList.toggle('active',tab==='hist');if(tab==='cat'){document.getElementById('so-cats').style.display='grid';document.getElementById('so-hist').style.display='none';document.getElementById('so-results').style.display='none';}else{document.getElementById('so-cats').style.display='none';document.getElementById('so-results').style.display='none';document.getElementById('so-hist').style.display='block';renderHistory();}}
+const soInput=document.getElementById('so-input');let soTimer;
+soInput.addEventListener('input',()=>{const q=soInput.value.trim();document.getElementById('so-clear').style.display=q?'block':'none';if(!q){document.getElementById('so-results').style.display='none';document.getElementById('so-cats').style.display='grid';return;}document.getElementById('so-cats').style.display='none';document.getElementById('so-hist').style.display='none';const loc=[...PLACES,...allReported.map(p=>({...p,cat:p.category,desc:p.description}))].filter(p=>p.name.toLowerCase().includes(q.toLowerCase())).slice(0,5);const el=document.getElementById('so-results');el.style.display='block';el.innerHTML=loc.map(p=>`<div class="sr-item" onclick="selectSearchResult('${p.name.replace(/'/g,"\\'")}',${p.lat},${p.lng},'${p.cat||p.category}')"><div class="sr-icon">${catEmoji(p.cat||p.category)}</div><div><div class="sr-name">${p.name}</div><div class="sr-sub">${p.desc||p.description||p.cat||''}</div></div></div>`).join('')+'<div class="sr-add-item" onclick="closeSearch();toggleAddMode()"><div class="sr-add-icon">+</div><div class="sr-name">Add a missing place</div></div>';clearTimeout(soTimer);soTimer=setTimeout(async()=>{try{const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+' Rwanda')}&format=json&limit=4&countrycodes=rw`,{headers:{'Accept-Language':'en'}});const d=await r.json();if(d.length){el.innerHTML+=d.map(x=>`<div class="sr-item" onclick="selectSearchResult('${x.display_name.split(',')[0].replace(/'/g,"\\'")}',${x.lat},${x.lon},'place')"><div class="sr-icon">📍</div><div><div class="sr-name">${x.display_name.split(',').slice(0,2).join(', ')}</div><div class="sr-sub">OpenStreetMap result</div></div></div>`).join('');}}catch(e){}},700);});
+function catEmoji(cat){const m={city:'🏙️',hotel:'🏨',hospital:'🏥',nature:'🌿',restaurant:'🍽️',reported:'📍',school:'🏫',bank:'🏦',fuel:'⛽',pharmacy:'💊',supermarket:'🛒'};return m[cat]||'📍';}
+function selectSearchResult(name,lat,lng,cat){closeSearch();map.flyTo([lat,lng],15);addToHistory(name,lat,lng,cat);showPlaceCard({name,lat,lng,cat,desc:cat});}
+function searchCategory(cat,emoji){closeSearch();const items=PLACES.filter(p=>p.cat===cat);if(items.length){showToast(`${emoji} Showing ${items.length} ${cat} places`);renderMarkers(cat,allReported);}else showToast('Loading from OpenStreetMap...');}
+async function searchCategoryOSM(key,val,emoji){closeSearch();showToast(`${emoji} Loading from OpenStreetMap...`);const q=`[out:json][timeout:25];area["ISO3166-1"="RW"]->.r;(node["${key}"="${val}"](area.r););out 100;`;try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();let count=0;(data.elements||[]).forEach(el=>{if(!el.lat||!el.lon)return;const name=(el.tags&&(el.tags.name||el.tags['name:en']))||val;L.marker([el.lat,el.lon],{icon:mkIcon('#534AB7')}).addTo(map).on('click',()=>showPlaceCard({name,lat:el.lat,lng:el.lon,cat:val,desc:val}));count++;});showToast(`${emoji} ${count} places found`);}catch(e){showToast('❌ Failed to load');}}
+let currentPlace=null;
+function showPlaceCard(p){currentPlace=p;document.getElementById('pc-name').textContent=p.name;document.getElementById('pc-sub').textContent=(p.cat||'Place')+' · Rwanda';document.getElementById('pc-coords').textContent=`${parseFloat(p.lat).toFixed(6)}, ${parseFloat(p.lng).toFixed(6)}`;document.getElementById('pc-dist').textContent='Calculating...';document.getElementById('pc-time').textContent='—';document.getElementById('place-card').classList.add('show');closeDirPanelSilent();navigator.geolocation.getCurrentPosition(pos=>{const d=getDistKm(pos.coords.latitude,pos.coords.longitude,parseFloat(p.lat),parseFloat(p.lng));const distStr=d<1?(d*1000).toFixed(0)+' m':d.toFixed(1)+' km';const timeMin=Math.round(d/0.8*60);const timeStr=timeMin<60?timeMin+' min':Math.floor(timeMin/60)+'h '+timeMin%60+'m';document.getElementById('pc-dist').textContent=distStr;document.getElementById('pc-time').textContent=timeStr+' walk';},()=>{document.getElementById('pc-dist').textContent='—';});}
+function closePlaceCard(){document.getElementById('place-card').classList.remove('show');currentPlace=null;}
+function getDistKm(lat1,lng1,lat2,lng2){const R=6371;const dLat=(lat2-lat1)*Math.PI/180;const dLng=(lng2-lng1)*Math.PI/180;const a=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)*Math.sin(dLng/2);return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));}
+function startDirectionsFromCard(){if(!currentPlace)return;openDirPanel();dirToCoords={lat:currentPlace.lat,lng:currentPlace.lng,name:currentPlace.name};document.getElementById('dir-to').value=currentPlace.name;closePlaceCard();fetchRoutes();}
+function sharePlaceCard(){if(!currentPlace)return;const url=`${window.location.href}?place=${encodeURIComponent(currentPlace.name)}&lat=${currentPlace.lat}&lng=${currentPlace.lng}`;navigator.clipboard&&navigator.clipboard.writeText(url).then(()=>showToast('📋 Link copied!'));}
+function savePlaceCard(){showToast('🔖 Saved — coming soon!');}
+function findNearby(cat){if(!currentPlace)return;closePlaceCard();renderMarkers(cat,allReported);showToast(`Showing ${cat} places`);}
+let dirFromCoords=null,dirToCoords=null,routeLayer=null,dirFromMarker=null,dirToMarker=null,activeMode='drive';
+function openDirPanel(){document.getElementById('dir-panel').classList.add('show');document.getElementById('nav-nav').classList.add('active');closePlaceCard();navigator.geolocation.getCurrentPosition(p=>{dirFromCoords={lat:p.coords.latitude,lng:p.coords.longitude,name:'Current location'};document.getElementById('dir-from').value='📍 Current location';},()=>{});}
+function closeDirPanel(){document.getElementById('dir-panel').classList.remove('show');document.getElementById('nav-nav').classList.remove('active');}
+function closeDirPanelSilent(){document.getElementById('dir-panel').classList.remove('show');}
+function selectMode(mode){activeMode=mode;document.querySelectorAll('.tp-mode').forEach(m=>m.classList.toggle('active',m.dataset.mode===mode));if(dirFromCoords&&dirToCoords)fetchRoutes();}
+function setupDirSuggest(inputId,sugId,onSelect){const input=document.getElementById(inputId),sug=document.getElementById(sugId);let t;input.addEventListener('input',()=>{clearTimeout(t);const q=input.value.trim();if(!q||q.includes('Current location')){sug.style.display='none';return;}const loc=[...PLACES,...allReported.map(p=>({...p,cat:p.category}))].filter(p=>p.name.toLowerCase().includes(q.toLowerCase())).slice(0,4);sug.innerHTML=loc.map(p=>`<div class="dir-sug-item" data-lat="${p.lat}" data-lng="${p.lng}" data-name="${p.name}">📍 ${p.name}</div>`).join('');sug.style.display=loc.length?'block':'none';t=setTimeout(async()=>{try{const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+' Rwanda')}&format=json&limit=3&countrycodes=rw`,{headers:{'Accept-Language':'en'}});const d=await r.json();if(d.length){sug.innerHTML+=d.map(x=>`<div class="dir-sug-item" data-lat="${x.lat}" data-lng="${x.lon}" data-name="${x.display_name.split(',')[0]}">🔍 ${x.display_name.split(',').slice(0,2).join(', ')}</div>`).join('');sug.style.display='block';}}catch(e){}},600);});sug.addEventListener('click',e=>{const it=e.target.closest('.dir-sug-item');if(!it)return;input.value=it.dataset.name;sug.style.display='none';onSelect({lat:parseFloat(it.dataset.lat),lng:parseFloat(it.dataset.lng),name:it.dataset.name});fetchRoutes();});document.addEventListener('click',e=>{if(!e.target.closest('#'+inputId)&&!e.target.closest('#'+sugId))sug.style.display='none';});}
+setupDirSuggest('dir-from','dir-from-sug',c=>{dirFromCoords=c;});
+setupDirSuggest('dir-to','dir-to-sug',c=>{dirToCoords=c;});
+async function fetchRoutes(){if(!dirFromCoords||!dirToCoords)return;if(routeLayer)map.removeLayer(routeLayer);if(dirFromMarker)map.removeLayer(dirFromMarker);if(dirToMarker)map.removeLayer(dirToMarker);document.getElementById('dp-routes').innerHTML='<p style="font-size:13px;color:var(--mu);text-align:center;padding:16px">Finding routes...</p>';try{const modes=['drive','walk','cycle'];const osrmProfile={drive:'driving',walk:'foot',cycle:'cycling'};const results={};for(const m of modes){try{const r=await fetch(`https://router.project-osrm.org/route/v1/${osrmProfile[m]}/${dirFromCoords.lng},${dirFromCoords.lat};${dirToCoords.lng},${dirToCoords.lat}?overview=full&geometries=geojson`);const d=await r.json();if(d.routes&&d.routes[0])results[m]=d.routes[0];}catch(e){}}modes.forEach(m=>{const el=document.getElementById('mode-'+m+'-time');if(results[m]){const mins=Math.round(results[m].duration/60);el.textContent=mins>=60?`${Math.floor(mins/60)}h${mins%60}m`:`${mins}m`;}else el.textContent='—';});const route=results[activeMode];if(route){routeLayer=L.geoJSON(route.geometry,{style:{color:activeMode==='drive'?'#185FA5':activeMode==='walk'?'#4CAF50':'#FF9800',weight:5,opacity:0.9}}).addTo(map);dirFromMarker=L.marker([dirFromCoords.lat,dirFromCoords.lng],{icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#1D9E75;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map);dirToMarker=L.marker([dirToCoords.lat,dirToCoords.lng],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;background:#1a1a18;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}).addTo(map).bindPopup(`<b>${dirToCoords.name}</b>`);map.fitBounds(routeLayer.getBounds(),{padding:[60,60]});const dist=(route.distance/1000).toFixed(1);const mins=Math.round(route.duration/60);const timeStr=mins>=60?`${Math.floor(mins/60)}h ${mins%60}m`:`${mins} min`;document.getElementById('dp-routes').innerHTML=`<div class="dp-route selected"><div class="dp-route-top"><div class="dp-route-time">${timeStr}</div></div><div class="dp-route-sub">${dist} km · ${activeMode} route</div></div>`;}}catch(e){document.getElementById('dp-routes').innerHTML='<p style="font-size:13px;color:var(--red);text-align:center;padding:16px">❌ Could not find route</p>';}}
+function startNavigation(){if(!dirFromCoords||!dirToCoords){showToast('⚠️ Set both start and destination');return;}showToast('🗺️ Navigation started! Follow the blue route.');}
 const ADMIN_STYLES={4:{color:'#1D9E75',weight:3,fillOpacity:0.06,fillColor:'#1D9E75'},5:{color:'#185FA5',weight:2,fillOpacity:0.05,fillColor:'#185FA5'},6:{color:'#BA7517',weight:1.2,fillOpacity:0.04,fillColor:'#BA7517',dashArray:'4,4'},7:{color:'#A32D2D',weight:1,fillOpacity:0,fillColor:'#A32D2D',dashArray:'3,5'}};
 const adminLayers={};const loadedLevels=new Set();
 function setStatus(msg){const el=document.getElementById('status');if(msg){el.textContent=msg;el.style.display='block';}else el.style.display='none';}
-async function loadAdminBoundaries(level,label,btn){
-  if(loadedLevels.has(level))return;
-  btn.className='admin-btn loading';btn.textContent='Loading...';setStatus(`Loading ${label}s...`);
-  const q=`[out:json][timeout:60];area["ISO3166-1"="RW"]->.r;relation["admin_level"="${level}"]["boundary"="administrative"](area.r);out geom;`;
-  try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();const style=ADMIN_STYLES[level];const group=L.layerGroup().addTo(map);adminLayers[level]=group;data.elements.forEach(rel=>{const name=rel.tags&&(rel.tags['name:en']||rel.tags.name);if(!rel.members)return;rel.members.filter(m=>m.type==='way'&&(m.role==='outer'||m.role==='')).forEach(way=>{if(!way.geometry||way.geometry.length<3)return;const poly=L.polygon(way.geometry.map(n=>[n.lat,n.lon]),{color:style.color,weight:style.weight,fillColor:style.fillColor,fillOpacity:style.fillOpacity,dashArray:style.dashArray||null}).addTo(group);if(name){poly.bindTooltip(name,{permanent:false,sticky:true,opacity:0.9});poly.bindPopup(`<b>${name}</b><br><span style="font-size:11px;color:#888">${label} · Rwanda</span>`);}});});loadedLevels.add(level);btn.className='admin-btn loaded';btn.textContent=`✅ ${data.elements.length}`;setStatus('');showToast(`✅ ${data.elements.length} ${label}s loaded!`);}catch(e){btn.className='admin-btn load';btn.textContent='Retry';setStatus('');showToast('❌ Failed');}
-}
-async function loadAdminPoints(level,label,btn){
-  if(loadedLevels.has(level))return;
-  btn.className='admin-btn loading';btn.textContent='Loading...';setStatus(`Loading ${label}s...`);
-  const q=`[out:json][timeout:60];area["ISO3166-1"="RW"]->.r;node["admin_level"="${level}"](area.r);out ${level===8?2000:1000};`;
-  try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();const color=level===8?'#993556':'#A32D2D';const group=L.layerGroup().addTo(map);adminLayers[level]=group;let count=0;(data.elements||[]).forEach(el=>{if(!el.lat||!el.lon)return;const name=(el.tags&&(el.tags['name:en']||el.tags.name))||label;L.circleMarker([el.lat,el.lon],{radius:level===8?3:4,color:'white',weight:1.5,fillColor:color,fillOpacity:0.9}).addTo(group).bindPopup(`<b>${name}</b><br><span style="font-size:11px;color:#888">${label}</span>`);count++;});loadedLevels.add(level);btn.className='admin-btn loaded';btn.textContent=`✅ ${count}`;setStatus('');showToast(`✅ ${count} ${label}s loaded!`);}catch(e){btn.className='admin-btn load';btn.textContent='Retry';setStatus('');showToast('❌ Failed');}
-}
+async function loadAdminBoundaries(level,label,btn){if(loadedLevels.has(level))return;btn.className='admin-btn loading';btn.textContent='Loading...';setStatus(`Loading ${label}s...`);const q=`[out:json][timeout:60];area["ISO3166-1"="RW"]->.r;relation["admin_level"="${level}"]["boundary"="administrative"](area.r);out geom;`;try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();const style=ADMIN_STYLES[level];const group=L.layerGroup().addTo(map);adminLayers[level]=group;data.elements.forEach(rel=>{const name=rel.tags&&(rel.tags['name:en']||rel.tags.name);if(!rel.members)return;rel.members.filter(m=>m.type==='way'&&(m.role==='outer'||m.role==='')).forEach(way=>{if(!way.geometry||way.geometry.length<3)return;const poly=L.polygon(way.geometry.map(n=>[n.lat,n.lon]),{color:style.color,weight:style.weight,fillColor:style.fillColor,fillOpacity:style.fillOpacity,dashArray:style.dashArray||null}).addTo(group);if(name){poly.bindTooltip(name,{permanent:false,sticky:true,opacity:0.9});poly.bindPopup(`<b>${name}</b><br><span style="font-size:11px;color:#888">${label} · Rwanda</span>`);}});});loadedLevels.add(level);btn.className='admin-btn loaded';btn.textContent=`✅ ${data.elements.length}`;setStatus('');showToast(`✅ ${data.elements.length} ${label}s loaded!`);}catch(e){btn.className='admin-btn load';btn.textContent='Retry';setStatus('');showToast('❌ Failed');}}
+async function loadAdminPoints(level,label,btn){if(loadedLevels.has(level))return;btn.className='admin-btn loading';btn.textContent='Loading...';setStatus(`Loading ${label}s...`);const q=`[out:json][timeout:60];area["ISO3166-1"="RW"]->.r;node["admin_level"="${level}"](area.r);out ${level===8?2000:1000};`;try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();const color=level===8?'#993556':'#A32D2D';const group=L.layerGroup().addTo(map);adminLayers[level]=group;let count=0;(data.elements||[]).forEach(el=>{if(!el.lat||!el.lon)return;const name=(el.tags&&(el.tags['name:en']||el.tags.name))||label;L.circleMarker([el.lat,el.lon],{radius:level===8?3:4,color:'white',weight:1.5,fillColor:color,fillOpacity:0.9}).addTo(group).bindPopup(`<b>${name}</b><br><span style="font-size:11px;color:#888">${label}</span>`);count++;});loadedLevels.add(level);btn.className='admin-btn loaded';btn.textContent=`✅ ${count}`;setStatus('');showToast(`✅ ${count} ${label}s loaded!`);}catch(e){btn.className='admin-btn load';btn.textContent='Retry';setStatus('');showToast('❌ Failed');}}
 document.getElementById('admin-rows').addEventListener('click',async e=>{const btn=e.target.closest('.admin-btn');if(!btn||btn.classList.contains('loaded')||btn.classList.contains('loading'))return;const level=parseInt(btn.dataset.level),label=btn.dataset.label;if(level<=6)await loadAdminBoundaries(level,label,btn);else await loadAdminPoints(level,label,btn);});
 document.getElementById('load-all-admin').addEventListener('click',async()=>{const btn=document.getElementById('load-all-admin');btn.disabled=true;btn.textContent='Loading...';for(const b of document.querySelectorAll('.admin-btn.load')){const level=parseInt(b.dataset.level),label=b.dataset.label;if(level<=6)await loadAdminBoundaries(level,label,b);else await loadAdminPoints(level,label,b);await new Promise(r=>setTimeout(r,800));}btn.textContent='✅ All loaded';});
 document.getElementById('clear-admin').addEventListener('click',()=>{Object.values(adminLayers).forEach(g=>map.removeLayer(g));Object.keys(adminLayers).forEach(k=>delete adminLayers[k]);loadedLevels.clear();document.querySelectorAll('.admin-btn').forEach(b=>{b.className='admin-btn load';b.textContent='Load';});document.getElementById('load-all-admin').disabled=false;document.getElementById('load-all-admin').textContent='⬇ Load All';showToast('Layers cleared');});
@@ -269,18 +366,14 @@ const gc=c=>CC[c]||'#FF6B35';
 const mkIcon=(c,size=12)=>L.divIcon({className:'',html:`<div style="width:${size}px;height:${size}px;background:${c};border-radius:50%;border:2.5px solid white;box-shadow:0 1px 6px rgba(0,0,0,.35)"></div>`,iconSize:[size,size],iconAnchor:[size/2,size/2]});
 let marks=[],aFilter='all',allReported=[];
 function updCounts(n){document.getElementById('cc-all').textContent=PLACES.length+n;['city','hotel','hospital','nature','restaurant'].forEach(c=>document.getElementById('cc-'+c).textContent=PLACES.filter(p=>p.cat===c).length);document.getElementById('cc-reported').textContent=n;document.getElementById('reported-count').textContent=n;}
-function renderMarkers(f,rep){marks.forEach(m=>map.removeLayer(m));marks=[];const list=f==='all'?PLACES:f==='reported'?[]:PLACES.filter(p=>p.cat===f);list.forEach(p=>{const m=L.marker([p.lat,p.lng],{icon:mkIcon(gc(p.cat))}).addTo(map).bindPopup(`<b style="font-size:14px">${p.name}</b><br><span style="font-size:12px;color:#888">${p.desc}</span>`);marks.push(m);});if(f==='all'||f==='reported')renderReportedOnMap(rep);}
+function renderMarkers(f,rep){marks.forEach(m=>map.removeLayer(m));marks=[];const list=f==='all'?PLACES:f==='reported'?[]:PLACES.filter(p=>p.cat===f);list.forEach(p=>{const m=L.marker([p.lat,p.lng],{icon:mkIcon(gc(p.cat))}).addTo(map);m.on('click',()=>showPlaceCard(p));marks.push(m);});if(f==='all'||f==='reported')renderReportedOnMap(rep);}
 let repMarkers=[];
-function renderReportedOnMap(places){repMarkers.forEach(m=>map.removeLayer(m));repMarkers=[];places.forEach(p=>{const m=L.marker([p.lat,p.lng],{icon:mkIcon(gc(p.category),14)}).addTo(map).bindPopup(`<b style="font-size:14px">${p.name}</b><br><span style="font-size:12px;color:#888">${p.description||p.category}</span><br><span style="font-size:10px;color:#aaa">Added ${p.date_added} · ☁️ Database</span>`);repMarkers.push(m);});renderReportedList(places);}
-function renderReportedList(places){const el=document.getElementById('reported-list');if(!places.length){el.innerHTML='<p style="font-size:11px;color:var(--mu);padding:4px 0">No places yet. Tap Add Place!</p>';return;}el.innerHTML=places.map(p=>`<div style="padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer" data-lat="${p.lat}" data-lng="${p.lng}" class="rep-item"><div style="font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#FF6B35;display:inline-block"></span>${p.name}</div><div style="font-size:10px;color:var(--mu);padding-left:14px">${p.category} · ${p.date_added}</div></div>`).join('');document.querySelectorAll('.rep-item').forEach(item=>item.addEventListener('click',()=>map.flyTo([parseFloat(item.dataset.lat),parseFloat(item.dataset.lng)],16)));}
+function renderReportedOnMap(places){repMarkers.forEach(m=>map.removeLayer(m));repMarkers=[];places.forEach(p=>{const m=L.marker([p.lat,p.lng],{icon:mkIcon(gc(p.category),14)}).addTo(map);m.on('click',()=>showPlaceCard({name:p.name,lat:p.lat,lng:p.lng,cat:p.category,desc:p.description}));repMarkers.push(m);});renderReportedList(places);}
+function renderReportedList(places){const el=document.getElementById('reported-list');if(!places.length){el.innerHTML='<p style="font-size:11px;color:var(--mu);padding:4px 0">No places yet.</p>';return;}el.innerHTML=places.map(p=>`<div style="padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer" data-lat="${p.lat}" data-lng="${p.lng}" class="rep-item"><div style="font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#FF6B35;display:inline-block"></span>${p.name}</div><div style="font-size:10px;color:var(--mu);padding-left:14px">${p.category} · ${p.date_added}</div></div>`).join('');document.querySelectorAll('.rep-item').forEach(item=>item.addEventListener('click',()=>map.flyTo([parseFloat(item.dataset.lat),parseFloat(item.dataset.lng)],16)));}
 async function loadFromDB(){try{const{data,error}=await db.from('places').select('*').order('id',{ascending:false});if(error)throw error;allReported=data||[];updCounts(allReported.length);renderMarkers(aFilter,allReported);if(allReported.length)showToast(`☁️ ${allReported.length} places from database!`);}catch(e){document.getElementById('reported-list').innerHTML='<p style="font-size:11px;color:var(--mu)">Could not load database.</p>';}}
 loadFromDB();
 document.getElementById('side-panel').addEventListener('click',e=>{const b=e.target.closest('.sp-btn');if(!b||!b.dataset.cat)return;document.querySelectorAll('.sp-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');aFilter=b.dataset.cat;renderMarkers(aFilter,allReported);});
-const inp=document.getElementById('si'),sg=document.getElementById('sg');let stimer;
-inp.addEventListener('input',()=>{clearTimeout(stimer);const q=inp.value.trim();if(!q){sg.style.display='none';return;}const loc=[...PLACES,...allReported.map(p=>({...p,cat:p.category,desc:p.description}))].filter(p=>p.name.toLowerCase().includes(q.toLowerCase())).slice(0,5);sg.innerHTML=loc.map(p=>`<div class="si-item" data-lat="${p.lat}" data-lng="${p.lng}" data-name="${p.name}"><span class="sd" style="background:${gc(p.cat||p.category)}"></span><div><div class="sn">${p.name}</div><div class="ss">${p.desc||p.description||''}</div></div></div>`).join('');sg.style.display=loc.length?'block':'none';stimer=setTimeout(async()=>{try{const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+' Rwanda')}&format=json&limit=3&countrycodes=rw`,{headers:{'Accept-Language':'en'}});const d=await r.json();if(d.length){sg.innerHTML+=d.map(x=>`<div class="si-item" data-lat="${x.lat}" data-lng="${x.lon}" data-name="${x.display_name.split(',')[0]}"><span class="sd" style="background:#aaa"></span><div><div class="sn">${x.display_name.split(',').slice(0,2).join(', ')}</div></div></div>`).join('');sg.style.display='block';}}catch(e){}},700);});
-let searchMarker=null;
-sg.addEventListener('click',e=>{const it=e.target.closest('.si-item');if(!it)return;const lat=parseFloat(it.dataset.lat),lng=parseFloat(it.dataset.lng),name=it.dataset.name;map.flyTo([lat,lng],16);inp.value=name;sg.style.display='none';if(searchMarker)map.removeLayer(searchMarker);searchMarker=L.marker([lat,lng],{icon:L.divIcon({className:'',html:`<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-100%)"><div style="background:#E53935;color:white;padding:6px 14px;border-radius:99px;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,0.3)">${name}</div><div style="width:2px;height:12px;background:#E53935"></div><div style="width:18px;height:18px;background:#E53935;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.4)"></div></div>`,iconSize:[200,70],iconAnchor:[100,70]})}).addTo(map);setTimeout(()=>{if(searchMarker){map.removeLayer(searchMarker);searchMarker=null;}},10000);});
-document.addEventListener('click',e=>{if(!e.target.closest('.search-pill')&&!e.target.closest('#sg'))sg.style.display='none';});
+map.on('click',function(e){if(addMode){pendingLatLng=e.latlng;document.getElementById('modal-coords').textContent=`📌 ${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`;document.getElementById('m-name').value='';document.getElementById('m-desc').value='';document.getElementById('modal-overlay').classList.add('show');toggleAddMode();}});
 function locate(){navigator.geolocation.getCurrentPosition(p=>{map.flyTo([p.coords.latitude,p.coords.longitude],16);L.marker([p.coords.latitude,p.coords.longitude],{icon:L.divIcon({className:'',html:'<div style="width:18px;height:18px;background:#185FA5;border-radius:50%;border:3px solid white;box-shadow:0 0 0 6px rgba(24,95,165,.25)"></div>',iconSize:[18,18],iconAnchor:[9,9]})}).addTo(map).bindPopup('<b>📍 You are here</b>').openPopup();},()=>showToast('Location access denied'));}
 document.getElementById('btn-loc').addEventListener('click',locate);
 function toggleSidePanel(){document.getElementById('side-panel').classList.toggle('open');document.getElementById('sp-overlay').classList.toggle('show');}
@@ -288,20 +381,11 @@ function closeSidePanel(){document.getElementById('side-panel').classList.remove
 document.getElementById('menu-btn').addEventListener('click',toggleSidePanel);
 let addMode=false,pendingLatLng=null;
 function toggleAddMode(){addMode=!addMode;document.getElementById('add-banner').style.display=addMode?'block':'none';document.getElementById('nav-add').classList.toggle('active',addMode);map.getContainer().style.cursor=addMode?'crosshair':'';}
-map.on('click',function(e){if(!addMode)return;pendingLatLng=e.latlng;document.getElementById('modal-coords').textContent=`📌 ${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`;document.getElementById('m-name').value='';document.getElementById('m-desc').value='';document.getElementById('modal-overlay').classList.add('show');toggleAddMode();});
 document.getElementById('modal-cancel').addEventListener('click',()=>{document.getElementById('modal-overlay').classList.remove('show');pendingLatLng=null;});
 document.getElementById('modal-save').addEventListener('click',async()=>{const name=document.getElementById('m-name').value.trim();if(!name){document.getElementById('m-name').focus();return;}const category=document.getElementById('m-cat').value,description=document.getElementById('m-desc').value.trim();const date_added=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});document.getElementById('modal-save').textContent='Saving...';const{error}=await db.from('places').insert([{name,category,description,lat:pendingLatLng.lat,lng:pendingLatLng.lng,date_added}]);if(error){showToast('❌ Failed to save');document.getElementById('modal-save').textContent='✓ Save to Database';return;}document.getElementById('modal-overlay').classList.remove('show');document.getElementById('modal-save').textContent='✓ Save to Database';map.flyTo([pendingLatLng.lat,pendingLatLng.lng],16);showToast(`✅ "${name}" saved for everyone! 🌍`);pendingLatLng=null;await loadFromDB();});
 document.getElementById('modal-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('modal-overlay'))document.getElementById('modal-overlay').classList.remove('show');});
-let dirFromCoords=null,dirToCoords=null,routeLayer=null,dirFromMarker=null,dirToMarker=null;
-function toggleDirPanel(){const panel=document.getElementById('dir-panel');panel.classList.toggle('show');document.getElementById('nav-nav').classList.toggle('active');if(panel.classList.contains('show')){navigator.geolocation.getCurrentPosition(p=>{dirFromCoords={lat:p.coords.latitude,lng:p.coords.longitude,name:'My Location'};document.getElementById('dir-from').value='📍 My Current Location';},()=>{});}}
-window.closeDirPanel=function(){document.getElementById('dir-panel').classList.remove('show');document.getElementById('nav-nav').classList.remove('active');};
-function setupDirSuggest(inputId,sugId,onSelect){const input=document.getElementById(inputId),sug=document.getElementById(sugId);let t;input.addEventListener('input',()=>{clearTimeout(t);const q=input.value.trim();if(!q||q.includes('My Current')){sug.style.display='none';return;}const loc=[...PLACES,...allReported.map(p=>({...p,cat:p.category}))].filter(p=>p.name.toLowerCase().includes(q.toLowerCase())).slice(0,4);sug.innerHTML=loc.map(p=>`<div class="dir-sug-item" data-lat="${p.lat}" data-lng="${p.lng}" data-name="${p.name}">📍 ${p.name}</div>`).join('');sug.style.display=loc.length?'block':'none';t=setTimeout(async()=>{try{const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+' Rwanda')}&format=json&limit=3&countrycodes=rw`,{headers:{'Accept-Language':'en'}});const d=await r.json();if(d.length){sug.innerHTML+=d.map(x=>`<div class="dir-sug-item" data-lat="${x.lat}" data-lng="${x.lon}" data-name="${x.display_name.split(',')[0]}">🔍 ${x.display_name.split(',').slice(0,2).join(', ')}</div>`).join('');sug.style.display='block';}}catch(e){}},600);});sug.addEventListener('click',e=>{const it=e.target.closest('.dir-sug-item');if(!it)return;input.value=it.dataset.name;sug.style.display='none';onSelect({lat:parseFloat(it.dataset.lat),lng:parseFloat(it.dataset.lng),name:it.dataset.name});});document.addEventListener('click',e=>{if(!e.target.closest('#'+inputId)&&!e.target.closest('#'+sugId))sug.style.display='none';});}
-setupDirSuggest('dir-from','dir-from-sug',c=>{dirFromCoords=c;});
-setupDirSuggest('dir-to','dir-to-sug',c=>{dirToCoords=c;});
-document.getElementById('dir-go-btn').addEventListener('click',async()=>{if(!dirFromCoords||!dirToCoords){showToast('⚠️ Set both start and destination');return;}const btn=document.getElementById('dir-go-btn');btn.textContent='Finding route...';btn.disabled=true;if(routeLayer)map.removeLayer(routeLayer);if(dirFromMarker)map.removeLayer(dirFromMarker);if(dirToMarker)map.removeLayer(dirToMarker);try{const res=await fetch(`https://router.project-osrm.org/route/v1/driving/${dirFromCoords.lng},${dirFromCoords.lat};${dirToCoords.lng},${dirToCoords.lat}?overview=full&geometries=geojson`);const data=await res.json();if(!data.routes||!data.routes.length){showToast('❌ No route found');btn.textContent='Get Directions →';btn.disabled=false;return;}const route=data.routes[0];document.getElementById('dir-dist').textContent=(route.distance/1000).toFixed(1)+' km';const mins=Math.round(route.duration/60);document.getElementById('dir-time').textContent=mins>=60?`${Math.floor(mins/60)}h ${mins%60}m`:`${mins} min`;document.getElementById('dir-result').classList.add('show');routeLayer=L.geoJSON(route.geometry,{style:{color:'#185FA5',weight:6,opacity:0.9}}).addTo(map);dirFromMarker=L.marker([dirFromCoords.lat,dirFromCoords.lng],{icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#1D9E75;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map).bindPopup(`<b>Start: ${dirFromCoords.name}</b>`);dirToMarker=L.marker([dirToCoords.lat,dirToCoords.lng],{icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#E53935;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map).bindPopup(`<b>Destination: ${dirToCoords.name}</b>`);map.fitBounds(routeLayer.getBounds(),{padding:[60,60]});btn.textContent='Get Directions →';btn.disabled=false;}catch(e){showToast('❌ Error finding route');btn.textContent='Get Directions →';btn.disabled=false;}});
-document.getElementById('dir-clear-btn').addEventListener('click',()=>{if(routeLayer)map.removeLayer(routeLayer);if(dirFromMarker)map.removeLayer(dirFromMarker);if(dirToMarker)map.removeLayer(dirToMarker);routeLayer=dirFromMarker=dirToMarker=dirFromCoords=dirToCoords=null;document.getElementById('dir-from').value='';document.getElementById('dir-to').value='';document.getElementById('dir-result').classList.remove('show');showToast('Route cleared');});
 let osmTotal=0;
-async function loadOSM(cat,key,val,color){const card=document.querySelector(`[data-osm="${cat}"]`);const countEl=document.getElementById('oc-'+cat);if(card.classList.contains('loaded'))return;card.classList.add('loading');countEl.textContent='...';const q=`[out:json][timeout:25];area["ISO3166-1"="RW"]->.r;(node["${key}"="${val}"](area.r);way["${key}"="${val}"](area.r););out center 300;`;try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();let count=0;(data.elements||[]).forEach(el=>{const lat=el.lat||(el.center&&el.center.lat);const lng=el.lon||(el.center&&el.center.lon);if(!lat||!lng)return;const name=(el.tags&&(el.tags.name||el.tags['name:en']))||cat;L.marker([lat,lng],{icon:mkIcon(color)}).addTo(map).bindPopup(`<b>${name}</b><br><span style="font-size:11px;color:#888">${cat}</span>`);count++;});osmTotal+=count;card.classList.remove('loading');card.classList.add('loaded');countEl.textContent=count;document.getElementById('ot').textContent=osmTotal.toLocaleString();}catch(e){card.classList.remove('loading');countEl.textContent='err';}}
+async function loadOSM(cat,key,val,color){const card=document.querySelector(`[data-osm="${cat}"]`);const countEl=document.getElementById('oc-'+cat);if(card.classList.contains('loaded'))return;card.classList.add('loading');countEl.textContent='...';const q=`[out:json][timeout:25];area["ISO3166-1"="RW"]->.r;(node["${key}"="${val}"](area.r);way["${key}"="${val}"](area.r););out center 300;`;try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();let count=0;(data.elements||[]).forEach(el=>{const lat=el.lat||(el.center&&el.center.lat);const lng=el.lon||(el.center&&el.center.lon);if(!lat||!lng)return;const name=(el.tags&&(el.tags.name||el.tags['name:en']))||cat;const m=L.marker([lat,lng],{icon:mkIcon(color)}).addTo(map);m.on('click',()=>showPlaceCard({name,lat,lng,cat,desc:cat}));count++;});osmTotal+=count;card.classList.remove('loading');card.classList.add('loaded');countEl.textContent=count;document.getElementById('ot').textContent=osmTotal.toLocaleString();}catch(e){card.classList.remove('loading');countEl.textContent='err';}}
 document.getElementById('og').addEventListener('click',e=>{const c=e.target.closest('.oc');if(!c)return;loadOSM(c.dataset.osm,c.dataset.key,c.dataset.val,c.dataset.color);});
 document.getElementById('iab').addEventListener('click',async()=>{const btn=document.getElementById('iab');btn.disabled=true;btn.textContent='Importing...';for(const c of document.querySelectorAll('.oc')){await loadOSM(c.dataset.osm,c.dataset.key,c.dataset.val,c.dataset.color);await new Promise(r=>setTimeout(r,600));}btn.textContent='✅ Done!';});
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',4000);}
