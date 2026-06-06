@@ -64,7 +64,7 @@
     .hist-icon{width:36px;height:36px;border-radius:50%;background:#f5f5f3;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
     .hist-name{font-size:14px;color:var(--tx);}
     .hist-sub{font-size:11px;color:var(--mu);}
-    #place-card{position:absolute;bottom:56px;left:0;right:0;z-index:1500;background:white;border-radius:20px 20px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.15);transform:translateY(100%);transition:transform 0.3s ease;max-height:70vh;overflow-y:auto;}
+    #place-card{position:absolute;bottom:56px;left:0;right:0;z-index:1500;background:white;border-radius:20px 20px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.15);transform:translateY(100%);transition:transform 0.3s ease;max-height:75vh;overflow-y:auto;}
     #place-card.show{transform:translateY(0);}
     .pc-handle{width:36px;height:4px;background:#ddd;border-radius:99px;margin:10px auto 0;}
     .pc-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;background:#f5f5f3;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--mu);}
@@ -74,11 +74,11 @@
     .pc-meta{display:flex;gap:16px;margin-bottom:14px;}
     .pc-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mu);}
     .pc-coords{font-size:11px;color:var(--mu);background:#f5f5f3;padding:6px 10px;border-radius:8px;margin-bottom:14px;font-family:monospace;}
-    .pc-actions{display:flex;gap:10px;}
-    .pc-action-main{flex:1;padding:12px;border-radius:12px;border:none;background:var(--blue);color:white;font-family:'Sora',sans-serif;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+    .pc-actions{display:flex;gap:8px;}
+    .pc-action-main{flex:1;padding:12px;border-radius:12px;border:none;background:var(--blue);color:white;font-family:'Sora',sans-serif;font-size:14px;font-weight:600;cursor:pointer;}
     .pc-action-sec{width:44px;height:44px;border-radius:12px;border:1px solid var(--bdr);background:white;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;}
     .pc-nearby{display:flex;gap:8px;margin-top:14px;overflow-x:auto;padding-bottom:4px;}
-    .pc-nearby-btn{padding:7px 14px;border-radius:99px;border:1px solid var(--bdr);background:white;font-family:'Sora',sans-serif;font-size:12px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:5px;}
+    .pc-nearby-btn{padding:7px 14px;border-radius:99px;border:1px solid var(--bdr);background:white;font-family:'Sora',sans-serif;font-size:12px;cursor:pointer;white-space:nowrap;}
     #dir-panel{position:absolute;bottom:56px;left:0;right:0;z-index:1500;background:white;border-radius:20px 20px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.15);transform:translateY(100%);transition:transform 0.3s ease;}
     #dir-panel.show{transform:translateY(0);}
     .dp-handle{width:36px;height:4px;background:#ddd;border-radius:99px;margin:10px auto 6px;}
@@ -86,24 +86,21 @@
     .dp-title{font-size:16px;font-weight:700;color:var(--tx);}
     .dp-done{padding:6px 14px;border-radius:99px;border:none;background:var(--blue);color:white;font-family:'Sora',sans-serif;font-size:13px;font-weight:600;cursor:pointer;}
     .dp-inputs{padding:0 16px 12px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid rgba(0,0,0,.06);}
-    .dp-input-row{display:flex;align-items:center;gap:10px;background:#f5f5f3;border-radius:10px;padding:10px 12px;position:relative;}
+    .dp-input-row{display:flex;align-items:center;gap:10px;background:#f5f5f3;border-radius:10px;padding:10px 12px;}
     .dp-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
     .dp-input{flex:1;border:none;outline:none;background:transparent;font-family:'Sora',sans-serif;font-size:13px;color:var(--tx);}
     .dp-input::placeholder{color:var(--mu);}
     .dp-add-stop{display:flex;align-items:center;gap:10px;padding:8px 16px;cursor:pointer;color:var(--mu);font-size:13px;}
-    .tp-modes{display:flex;gap:0;padding:0;border-bottom:1px solid rgba(0,0,0,.06);overflow-x:auto;}
+    .tp-modes{display:flex;border-bottom:1px solid rgba(0,0,0,.06);overflow-x:auto;}
     .tp-mode{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 8px;cursor:pointer;color:var(--mu);border-bottom:3px solid transparent;min-width:60px;}
     .tp-mode.active{color:var(--blue);border-bottom-color:var(--blue);}
     .tp-mode svg{width:20px;height:20px;fill:currentColor;margin-bottom:3px;}
     .tp-mode-time{font-size:12px;font-weight:600;}
     .tp-mode-label{font-size:10px;}
-    .dp-routes{padding:10px 16px;max-height:180px;overflow-y:auto;}
-    .dp-route{padding:12px;border-radius:12px;background:#f5f5f3;margin-bottom:8px;cursor:pointer;border:2px solid transparent;}
+    .dp-routes{padding:10px 16px;max-height:160px;overflow-y:auto;}
+    .dp-route{padding:12px;border-radius:12px;background:#f5f5f3;margin-bottom:8px;border:2px solid transparent;}
     .dp-route.selected{background:#EEF4FF;border-color:var(--blue);}
-    .dp-route-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
     .dp-route-time{font-size:16px;font-weight:700;color:var(--tx);}
-    .dp-tag{padding:3px 8px;border-radius:99px;font-size:11px;font-weight:500;}
-    .dp-tag-walk{background:#f5f5f3;color:var(--mu);}
     .dp-route-sub{font-size:11px;color:var(--mu);}
     .dp-go-btn{width:calc(100% - 32px);margin:0 16px 16px;padding:14px;border-radius:14px;border:none;background:var(--blue);color:white;font-family:'Sora',sans-serif;font-size:15px;font-weight:700;cursor:pointer;}
     .dir-sug{position:absolute;left:0;right:0;background:white;z-index:9999;max-height:200px;overflow-y:auto;border-bottom:1px solid rgba(0,0,0,.06);}
@@ -157,7 +154,7 @@
     #sp-overlay.show{display:block;}
     #add-banner{position:absolute;top:70px;left:50%;transform:translateX(-50%);z-index:1000;background:var(--green);color:white;padding:8px 20px;border-radius:99px;font-size:13px;font-weight:500;pointer-events:none;display:none;white-space:nowrap;}
     #status{position:absolute;top:70px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(26,26,24,.88);color:white;padding:8px 18px;border-radius:99px;font-size:12px;display:none;white-space:nowrap;pointer-events:none;}
-    #toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#1a1a18;color:white;padding:10px 20px;border-radius:99px;font-size:13px;z-index:9999;display:none;}
+    #toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#1a1a18;color:white;padding:10px 20px;border-radius:99px;font-size:13px;z-index:9999;display:none;text-align:center;max-width:300px;}
     .leaflet-popup-content-wrapper{border-radius:14px !important;font-family:'Sora',sans-serif !important;}
     .leaflet-popup-content{margin:12px 14px !important;}
     .leaflet-control-zoom{display:none;}
@@ -176,6 +173,8 @@
 <div id="right-controls">
   <div id="zoom-btns"><button class="zoom-btn" id="zoom-in">+</button><div class="zoom-divider"></div><button class="zoom-btn" id="zoom-out">−</button></div>
   <button class="map-ctrl" id="btn-sat">🛰</button>
+  <button class="map-ctrl" id="btn-traffic">🚦</button>
+  <button class="map-ctrl" id="btn-bus">🚌</button>
   <button class="map-ctrl" id="btn-home">🇷🇼</button>
 </div>
 <div id="bottom-nav">
@@ -186,14 +185,8 @@
   <div class="nav-item" id="nav-search" onclick="openSearch()"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg><span>Search</span></div>
 </div>
 <div id="search-overlay">
-  <div id="so-header">
-    <button id="so-back" onclick="closeSearch()">←</button>
-    <div class="so-search-row"><em>🔍</em><input id="so-input" type="text" placeholder="Search places, streets..." autocomplete="off"/><button id="so-clear" onclick="clearSOInput()">✕</button></div>
-  </div>
-  <div class="so-tabs">
-    <div class="so-tab active" id="tab-cat" onclick="switchTab('cat')">Categories</div>
-    <div class="so-tab" id="tab-hist" onclick="switchTab('hist')">History</div>
-  </div>
+  <div id="so-header"><button id="so-back" onclick="closeSearch()">←</button><div class="so-search-row"><em>🔍</em><input id="so-input" type="text" placeholder="Search places, streets..." autocomplete="off"/><button id="so-clear" onclick="clearSOInput()">✕</button></div></div>
+  <div class="so-tabs"><div class="so-tab active" id="tab-cat" onclick="switchTab('cat')">Categories</div><div class="so-tab" id="tab-hist" onclick="switchTab('hist')">History</div></div>
   <div id="so-content">
     <div id="so-cats" class="cat-grid">
       <div class="cat-cell" onclick="searchCategory('restaurant','🍽️')"><div class="cat-icon-wrap">🍽️</div><div class="cat-cell-name">Restaurants</div></div>
@@ -222,9 +215,15 @@
     <div class="pc-meta"><div class="pc-meta-item">📍 <span id="pc-dist">—</span></div><div class="pc-meta-item">⏱ <span id="pc-time">—</span></div></div>
     <div class="pc-coords" id="pc-coords">—</div>
     <div class="pc-actions">
-      <button class="pc-action-main" id="pc-dir-btn" onclick="startDirectionsFromCard()">➤ Directions</button>
+      <button class="pc-action-main" onclick="startDirectionsFromCard()">➤ Directions</button>
+      <button class="pc-action-sec" onclick="openStreetPhoto()">📸</button>
       <button class="pc-action-sec" onclick="sharePlaceCard()">↗</button>
       <button class="pc-action-sec" onclick="savePlaceCard()">🔖</button>
+    </div>
+    <div id="pc-photo-wrap" style="display:none;margin-top:12px;border-radius:12px;overflow:hidden;background:#f5f5f3;height:160px;position:relative;cursor:pointer" onclick="openMapillary()">
+      <img id="pc-photo" style="width:100%;height:100%;object-fit:cover;display:none"/>
+      <div id="pc-photo-loading" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px"><div style="font-size:28px">📸</div><div style="font-size:12px;color:var(--mu)">Loading street photo...</div></div>
+      <div style="position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.5);color:white;padding:4px 10px;border-radius:99px;font-size:11px">📸 Street View · Tap to explore</div>
     </div>
     <div class="pc-nearby">
       <button class="pc-nearby-btn" onclick="findNearby('restaurant')">🍽️ Restaurants</button>
@@ -244,13 +243,13 @@
     <div id="dir-to-sug" class="dir-sug"></div>
   </div>
   <div class="dp-add-stop" onclick="showToast('Add stop — coming soon!')"><span>+</span> Add stop</div>
-  <div class="tp-modes" id="tp-modes">
+  <div class="tp-modes">
     <div class="tp-mode active" data-mode="drive" onclick="selectMode('drive')"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg><div class="tp-mode-time" id="mode-drive-time">—</div><div class="tp-mode-label">Drive</div></div>
     <div class="tp-mode" data-mode="walk" onclick="selectMode('walk')"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg><div class="tp-mode-time" id="mode-walk-time">—</div><div class="tp-mode-label">Walk</div></div>
     <div class="tp-mode" data-mode="cycle" onclick="selectMode('cycle')"><svg viewBox="0 0 24 24"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg><div class="tp-mode-time" id="mode-cycle-time">—</div><div class="tp-mode-label">Cycle</div></div>
   </div>
   <div class="dp-routes" id="dp-routes"><p style="font-size:13px;color:var(--mu);text-align:center;padding:20px 0">Set your destination to see routes</p></div>
-  <button class="dp-go-btn" id="dp-go-btn" onclick="startNavigation()">Let's go →</button>
+  <button class="dp-go-btn" onclick="startNavigation()">Let's go →</button>
 </div>
 <div id="sp-overlay" onclick="closeSidePanel()"></div>
 <div id="side-panel">
@@ -326,22 +325,48 @@ function renderHistory(){const el=document.getElementById('so-hist');if(!searchH
 function openSearch(){document.getElementById('search-overlay').classList.add('show');document.getElementById('so-input').focus();switchTab('cat');}
 function closeSearch(){document.getElementById('search-overlay').classList.remove('show');}
 document.getElementById('search-trigger').addEventListener('click',openSearch);
-function clearSOInput(){document.getElementById('so-input').value='';document.getElementById('so-clear').style.display='none';document.getElementById('so-results').style.display='none';document.getElementById('so-cats').style.display='grid';switchTab('cat');}
+function clearSOInput(){document.getElementById('so-input').value='';document.getElementById('so-clear').style.display='none';document.getElementById('so-results').style.display='none';document.getElementById('so-cats').style.display='grid';}
 function switchTab(tab){document.getElementById('tab-cat').classList.toggle('active',tab==='cat');document.getElementById('tab-hist').classList.toggle('active',tab==='hist');if(tab==='cat'){document.getElementById('so-cats').style.display='grid';document.getElementById('so-hist').style.display='none';document.getElementById('so-results').style.display='none';}else{document.getElementById('so-cats').style.display='none';document.getElementById('so-results').style.display='none';document.getElementById('so-hist').style.display='block';renderHistory();}}
 const soInput=document.getElementById('so-input');let soTimer;
-soInput.addEventListener('input',()=>{const q=soInput.value.trim();document.getElementById('so-clear').style.display=q?'block':'none';if(!q){document.getElementById('so-results').style.display='none';document.getElementById('so-cats').style.display='grid';return;}document.getElementById('so-cats').style.display='none';document.getElementById('so-hist').style.display='none';const loc=[...PLACES,...allReported.map(p=>({...p,cat:p.category,desc:p.description}))].filter(p=>p.name.toLowerCase().includes(q.toLowerCase())).slice(0,5);const el=document.getElementById('so-results');el.style.display='block';el.innerHTML=loc.map(p=>`<div class="sr-item" onclick="selectSearchResult('${p.name.replace(/'/g,"\\'")}',${p.lat},${p.lng},'${p.cat||p.category}')"><div class="sr-icon">${catEmoji(p.cat||p.category)}</div><div><div class="sr-name">${p.name}</div><div class="sr-sub">${p.desc||p.description||p.cat||''}</div></div></div>`).join('')+'<div class="sr-add-item" onclick="closeSearch();toggleAddMode()"><div class="sr-add-icon">+</div><div class="sr-name">Add a missing place</div></div>';clearTimeout(soTimer);soTimer=setTimeout(async()=>{try{const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+' Rwanda')}&format=json&limit=4&countrycodes=rw`,{headers:{'Accept-Language':'en'}});const d=await r.json();if(d.length){el.innerHTML+=d.map(x=>`<div class="sr-item" onclick="selectSearchResult('${x.display_name.split(',')[0].replace(/'/g,"\\'")}',${x.lat},${x.lon},'place')"><div class="sr-icon">📍</div><div><div class="sr-name">${x.display_name.split(',').slice(0,2).join(', ')}</div><div class="sr-sub">OpenStreetMap result</div></div></div>`).join('');}}catch(e){}},700);});
+soInput.addEventListener('input',()=>{const q=soInput.value.trim();document.getElementById('so-clear').style.display=q?'block':'none';if(!q){document.getElementById('so-results').style.display='none';document.getElementById('so-cats').style.display='grid';return;}document.getElementById('so-cats').style.display='none';document.getElementById('so-hist').style.display='none';const loc=[...PLACES,...allReported.map(p=>({...p,cat:p.category,desc:p.description}))].filter(p=>p.name.toLowerCase().includes(q.toLowerCase())).slice(0,5);const el=document.getElementById('so-results');el.style.display='block';el.innerHTML=loc.map(p=>`<div class="sr-item" onclick="selectSearchResult('${p.name.replace(/'/g,"\\'")}',${p.lat},${p.lng},'${p.cat||p.category}')"><div class="sr-icon">${catEmoji(p.cat||p.category)}</div><div><div class="sr-name">${p.name}</div><div class="sr-sub">${p.desc||p.description||''}</div></div></div>`).join('')+'<div class="sr-add-item" onclick="closeSearch();toggleAddMode()"><div class="sr-add-icon">+</div><div class="sr-name">Add a missing place</div></div>';clearTimeout(soTimer);soTimer=setTimeout(async()=>{try{const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+' Rwanda')}&format=json&limit=4&countrycodes=rw`,{headers:{'Accept-Language':'en'}});const d=await r.json();if(d.length){el.innerHTML+=d.map(x=>`<div class="sr-item" onclick="selectSearchResult('${x.display_name.split(',')[0].replace(/'/g,"\\'")}',${x.lat},${x.lon},'place')"><div class="sr-icon">📍</div><div><div class="sr-name">${x.display_name.split(',').slice(0,2).join(', ')}</div><div class="sr-sub">OpenStreetMap</div></div></div>`).join('');}}catch(e){}},700);});
 function catEmoji(cat){const m={city:'🏙️',hotel:'🏨',hospital:'🏥',nature:'🌿',restaurant:'🍽️',reported:'📍',school:'🏫',bank:'🏦',fuel:'⛽',pharmacy:'💊',supermarket:'🛒'};return m[cat]||'📍';}
 function selectSearchResult(name,lat,lng,cat){closeSearch();map.flyTo([lat,lng],15);addToHistory(name,lat,lng,cat);showPlaceCard({name,lat,lng,cat,desc:cat});}
-function searchCategory(cat,emoji){closeSearch();const items=PLACES.filter(p=>p.cat===cat);if(items.length){showToast(`${emoji} Showing ${items.length} ${cat} places`);renderMarkers(cat,allReported);}else showToast('Loading from OpenStreetMap...');}
-async function searchCategoryOSM(key,val,emoji){closeSearch();showToast(`${emoji} Loading from OpenStreetMap...`);const q=`[out:json][timeout:25];area["ISO3166-1"="RW"]->.r;(node["${key}"="${val}"](area.r););out 100;`;try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();let count=0;(data.elements||[]).forEach(el=>{if(!el.lat||!el.lon)return;const name=(el.tags&&(el.tags.name||el.tags['name:en']))||val;L.marker([el.lat,el.lon],{icon:mkIcon('#534AB7')}).addTo(map).on('click',()=>showPlaceCard({name,lat:el.lat,lng:el.lon,cat:val,desc:val}));count++;});showToast(`${emoji} ${count} places found`);}catch(e){showToast('❌ Failed to load');}}
+function searchCategory(cat,emoji){closeSearch();const items=PLACES.filter(p=>p.cat===cat);if(items.length){showToast(`${emoji} Showing ${items.length} ${cat} places`);renderMarkers(cat,allReported);}else showToast('Loading...');}
+async function searchCategoryOSM(key,val,emoji){closeSearch();showToast(`${emoji} Loading...`);const q=`[out:json][timeout:25];area["ISO3166-1"="RW"]->.r;(node["${key}"="${val}"](area.r););out 100;`;try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();let count=0;(data.elements||[]).forEach(el=>{if(!el.lat||!el.lon)return;const name=(el.tags&&(el.tags.name||el.tags['name:en']))||val;L.marker([el.lat,el.lon],{icon:mkIcon('#534AB7')}).addTo(map).on('click',()=>showPlaceCard({name,lat:el.lat,lng:el.lon,cat:val,desc:val}));count++;});showToast(`${emoji} ${count} places found`);}catch(e){showToast('❌ Failed');}}
 let currentPlace=null;
-function showPlaceCard(p){currentPlace=p;document.getElementById('pc-name').textContent=p.name;document.getElementById('pc-sub').textContent=(p.cat||'Place')+' · Rwanda';document.getElementById('pc-coords').textContent=`${parseFloat(p.lat).toFixed(6)}, ${parseFloat(p.lng).toFixed(6)}`;document.getElementById('pc-dist').textContent='Calculating...';document.getElementById('pc-time').textContent='—';document.getElementById('place-card').classList.add('show');closeDirPanelSilent();navigator.geolocation.getCurrentPosition(pos=>{const d=getDistKm(pos.coords.latitude,pos.coords.longitude,parseFloat(p.lat),parseFloat(p.lng));const distStr=d<1?(d*1000).toFixed(0)+' m':d.toFixed(1)+' km';const timeMin=Math.round(d/0.8*60);const timeStr=timeMin<60?timeMin+' min':Math.floor(timeMin/60)+'h '+timeMin%60+'m';document.getElementById('pc-dist').textContent=distStr;document.getElementById('pc-time').textContent=timeStr+' walk';},()=>{document.getElementById('pc-dist').textContent='—';});}
+function showPlaceCard(p){currentPlace=p;document.getElementById('pc-name').textContent=p.name;document.getElementById('pc-sub').textContent=(p.cat||'Place')+' · Rwanda';document.getElementById('pc-coords').textContent=`${parseFloat(p.lat).toFixed(6)}, ${parseFloat(p.lng).toFixed(6)}`;document.getElementById('pc-dist').textContent='Calculating...';document.getElementById('pc-time').textContent='—';document.getElementById('pc-photo-wrap').style.display='none';document.getElementById('place-card').classList.add('show');closeDirPanelSilent();navigator.geolocation.getCurrentPosition(pos=>{const d=getDistKm(pos.coords.latitude,pos.coords.longitude,parseFloat(p.lat),parseFloat(p.lng));document.getElementById('pc-dist').textContent=d<1?(d*1000).toFixed(0)+' m':d.toFixed(1)+' km';const mins=Math.round(d/0.8*60);document.getElementById('pc-time').textContent=(mins<60?mins+' min':Math.floor(mins/60)+'h '+mins%60+'m')+' walk';},()=>{document.getElementById('pc-dist').textContent='—';});}
 function closePlaceCard(){document.getElementById('place-card').classList.remove('show');currentPlace=null;}
 function getDistKm(lat1,lng1,lat2,lng2){const R=6371;const dLat=(lat2-lat1)*Math.PI/180;const dLng=(lng2-lng1)*Math.PI/180;const a=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)*Math.sin(dLng/2);return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));}
 function startDirectionsFromCard(){if(!currentPlace)return;openDirPanel();dirToCoords={lat:currentPlace.lat,lng:currentPlace.lng,name:currentPlace.name};document.getElementById('dir-to').value=currentPlace.name;closePlaceCard();fetchRoutes();}
-function sharePlaceCard(){if(!currentPlace)return;const url=`${window.location.href}?place=${encodeURIComponent(currentPlace.name)}&lat=${currentPlace.lat}&lng=${currentPlace.lng}`;navigator.clipboard&&navigator.clipboard.writeText(url).then(()=>showToast('📋 Link copied!'));}
-function savePlaceCard(){showToast('🔖 Saved — coming soon!');}
+function sharePlaceCard(){if(!currentPlace)return;navigator.clipboard&&navigator.clipboard.writeText(`${window.location.href}?place=${encodeURIComponent(currentPlace.name)}&lat=${currentPlace.lat}&lng=${currentPlace.lng}`).then(()=>showToast('📋 Link copied!'));}
+function savePlaceCard(){showToast('🔖 Coming soon!');}
 function findNearby(cat){if(!currentPlace)return;closePlaceCard();renderMarkers(cat,allReported);showToast(`Showing ${cat} places`);}
+// STREET PHOTOS
+function openStreetPhoto(){if(!currentPlace)return;const wrap=document.getElementById('pc-photo-wrap');wrap.style.display='block';document.getElementById('pc-photo-loading').innerHTML='<div style="font-size:28px">📸</div><div style="font-size:12px;color:var(--mu)">Loading street photo...</div>';document.getElementById('pc-photo').style.display='none';loadWikiPhoto(currentPlace.name,currentPlace.lat,currentPlace.lng);}
+async function loadWikiPhoto(name,lat,lng){try{const res=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(name)}`);if(res.ok){const data=await res.json();if(data.thumbnail&&data.thumbnail.source){const img=document.getElementById('pc-photo');img.src=data.thumbnail.source;img.onload=()=>{document.getElementById('pc-photo-loading').style.display='none';img.style.display='block';};img.onerror=()=>showMapillaryFallback(lat,lng);return;}}showMapillaryFallback(lat,lng);}catch(e){showMapillaryFallback(lat,lng);}}
+function showMapillaryFallback(lat,lng){document.getElementById('pc-photo-loading').innerHTML=`<div style="text-align:center;padding:16px"><div style="font-size:28px;margin-bottom:8px">📸</div><div style="font-size:12px;color:var(--mu);margin-bottom:10px">No photo found.<br>View on Mapillary</div><button onclick="openMapillary()" style="padding:8px 16px;border-radius:99px;border:none;background:var(--green);color:white;font-size:12px;cursor:pointer;font-family:'Sora',sans-serif">Open Mapillary →</button></div>`;}
+function openMapillary(){if(!currentPlace)return;window.open(`https://www.mapillary.com/app/?lat=${currentPlace.lat}&lng=${currentPlace.lng}&z=17`,'_blank');}
+// TRAFFIC
+let trafficOn=false;let densityMarkers=[];
+document.getElementById('btn-traffic').addEventListener('click',()=>{
+  const btn=document.getElementById('btn-traffic');
+  if(trafficOn){densityMarkers.forEach(m=>map.removeLayer(m));densityMarkers=[];trafficOn=false;btn.classList.remove('active');showToast('🚦 Traffic layer off');return;}
+  const hotspots=[{lat:-1.9441,lng:30.0619,color:'#E53935',r:9000,label:'Kigali CBD - Heavy'},{lat:-1.9600,lng:30.0640,color:'#FF9800',r:6000,label:'Remera - Moderate'},{lat:-1.9378,lng:30.0734,color:'#FF9800',r:5000,label:'Kimihurura - Moderate'},{lat:-1.9490,lng:30.0615,color:'#E53935',r:6000,label:'Nyarugenge - Heavy'},{lat:-2.5967,lng:29.7394,color:'#4CAF50',r:4500,label:'Huye - Light'},{lat:-1.4994,lng:29.6344,color:'#4CAF50',r:3000,label:'Musanze - Light'},{lat:-1.7042,lng:29.2567,color:'#FF9800',r:3600,label:'Rubavu - Moderate'},{lat:-1.9500,lng:30.4333,color:'#4CAF50',r:3000,label:'Rwamagana - Light'},{lat:-1.2985,lng:30.3274,color:'#4CAF50',r:3000,label:'Nyagatare - Light'}];
+  hotspots.forEach(h=>{const m=L.circle([h.lat,h.lng],{radius:h.r,color:h.color,fillColor:h.color,fillOpacity:0.25,weight:1}).addTo(map);m.bindTooltip(`🚦 ${h.label}`,{permanent:false,sticky:true});densityMarkers.push(m);});
+  trafficOn=true;btn.classList.add('active');showToast('🚦 Traffic: Red=Heavy · Orange=Moderate · Green=Light');
+});
+// BUS ROUTES
+let busLayer=null,busOn=false;
+document.getElementById('btn-bus').addEventListener('click',async()=>{
+  const btn=document.getElementById('btn-bus');
+  if(busOn){if(busLayer)map.removeLayer(busLayer);busOn=false;btn.classList.remove('active');showToast('🚌 Bus routes hidden');return;}
+  showToast('🚌 Loading Rwanda bus routes...');btn.classList.add('active');
+  const q=`[out:json][timeout:60];area["ISO3166-1"="RW"]->.r;relation["route"="bus"](area.r);out geom;`;
+  try{const res=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',body:'data='+encodeURIComponent(q)});const data=await res.json();const group=L.layerGroup().addTo(map);busLayer=group;let count=0;const colors=['#4CAF50','#2196F3','#FF9800','#9C27B0','#F44336','#00BCD4'];data.elements.forEach((rel,i)=>{const name=(rel.tags&&(rel.tags.name||rel.tags.ref||rel.tags['name:en']))||'Bus Route';const color=colors[i%colors.length];if(!rel.members)return;rel.members.filter(m=>m.type==='way'&&m.geometry).forEach(way=>{if(!way.geometry||way.geometry.length<2)return;L.polyline(way.geometry.map(n=>[n.lat,n.lon]),{color,weight:4,opacity:0.85}).addTo(group).bindTooltip(`🚌 ${name}`,{sticky:true});count++;});});busOn=true;
+  if(count===0){showManualBusRoutes(group);}else{showToast(`🚌 ${data.elements.length} bus routes loaded!`);}}catch(e){btn.classList.remove('active');busOn=false;showToast('❌ Failed to load bus routes');}
+});
+function showManualBusRoutes(group){const routes=[{name:'Kigali - Musanze',color:'#4CAF50',points:[[-1.9441,30.0619],[-1.75,29.8],[-1.6,29.7],[-1.4994,29.6344]]},{name:'Kigali - Huye',color:'#2196F3',points:[[-1.9441,30.0619],[-2.1,29.9],[-2.3,29.8],[-2.5967,29.7394]]},{name:'Kigali - Rubavu',color:'#FF9800',points:[[-1.9441,30.0619],[-1.9,29.8],[-1.8,29.6],[-1.7042,29.2567]]},{name:'Kigali - Rwamagana',color:'#9C27B0',points:[[-1.9441,30.0619],[-1.95,30.2],[-1.95,30.4333]]},{name:'Kigali - Nyagatare',color:'#F44336',points:[[-1.9441,30.0619],[-1.8,30.1],[-1.6,30.2],[-1.2985,30.3274]]},{name:'Kigali City Express',color:'#00BCD4',points:[[-1.96,30.064],[-1.95,30.0619],[-1.9378,30.0734],[-1.93,30.08]]}];routes.forEach(r=>{L.polyline(r.points,{color:r.color,weight:4,opacity:0.85,dashArray:'8,4'}).addTo(group).bindTooltip(`🚌 ${r.name}`,{sticky:true});[r.points[0],r.points[r.points.length-1]].forEach(p=>{L.circleMarker(p,{radius:6,color:'white',weight:2,fillColor:r.color,fillOpacity:1}).addTo(group);});});showToast('🚌 Showing 6 major Rwanda bus routes');}
+// DIRECTIONS
 let dirFromCoords=null,dirToCoords=null,routeLayer=null,dirFromMarker=null,dirToMarker=null,activeMode='drive';
 function openDirPanel(){document.getElementById('dir-panel').classList.add('show');document.getElementById('nav-nav').classList.add('active');closePlaceCard();navigator.geolocation.getCurrentPosition(p=>{dirFromCoords={lat:p.coords.latitude,lng:p.coords.longitude,name:'Current location'};document.getElementById('dir-from').value='📍 Current location';},()=>{});}
 function closeDirPanel(){document.getElementById('dir-panel').classList.remove('show');document.getElementById('nav-nav').classList.remove('active');}
@@ -350,8 +375,8 @@ function selectMode(mode){activeMode=mode;document.querySelectorAll('.tp-mode').
 function setupDirSuggest(inputId,sugId,onSelect){const input=document.getElementById(inputId),sug=document.getElementById(sugId);let t;input.addEventListener('input',()=>{clearTimeout(t);const q=input.value.trim();if(!q||q.includes('Current location')){sug.style.display='none';return;}const loc=[...PLACES,...allReported.map(p=>({...p,cat:p.category}))].filter(p=>p.name.toLowerCase().includes(q.toLowerCase())).slice(0,4);sug.innerHTML=loc.map(p=>`<div class="dir-sug-item" data-lat="${p.lat}" data-lng="${p.lng}" data-name="${p.name}">📍 ${p.name}</div>`).join('');sug.style.display=loc.length?'block':'none';t=setTimeout(async()=>{try{const r=await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+' Rwanda')}&format=json&limit=3&countrycodes=rw`,{headers:{'Accept-Language':'en'}});const d=await r.json();if(d.length){sug.innerHTML+=d.map(x=>`<div class="dir-sug-item" data-lat="${x.lat}" data-lng="${x.lon}" data-name="${x.display_name.split(',')[0]}">🔍 ${x.display_name.split(',').slice(0,2).join(', ')}</div>`).join('');sug.style.display='block';}}catch(e){}},600);});sug.addEventListener('click',e=>{const it=e.target.closest('.dir-sug-item');if(!it)return;input.value=it.dataset.name;sug.style.display='none';onSelect({lat:parseFloat(it.dataset.lat),lng:parseFloat(it.dataset.lng),name:it.dataset.name});fetchRoutes();});document.addEventListener('click',e=>{if(!e.target.closest('#'+inputId)&&!e.target.closest('#'+sugId))sug.style.display='none';});}
 setupDirSuggest('dir-from','dir-from-sug',c=>{dirFromCoords=c;});
 setupDirSuggest('dir-to','dir-to-sug',c=>{dirToCoords=c;});
-async function fetchRoutes(){if(!dirFromCoords||!dirToCoords)return;if(routeLayer)map.removeLayer(routeLayer);if(dirFromMarker)map.removeLayer(dirFromMarker);if(dirToMarker)map.removeLayer(dirToMarker);document.getElementById('dp-routes').innerHTML='<p style="font-size:13px;color:var(--mu);text-align:center;padding:16px">Finding routes...</p>';try{const modes=['drive','walk','cycle'];const osrmProfile={drive:'driving',walk:'foot',cycle:'cycling'};const results={};for(const m of modes){try{const r=await fetch(`https://router.project-osrm.org/route/v1/${osrmProfile[m]}/${dirFromCoords.lng},${dirFromCoords.lat};${dirToCoords.lng},${dirToCoords.lat}?overview=full&geometries=geojson`);const d=await r.json();if(d.routes&&d.routes[0])results[m]=d.routes[0];}catch(e){}}modes.forEach(m=>{const el=document.getElementById('mode-'+m+'-time');if(results[m]){const mins=Math.round(results[m].duration/60);el.textContent=mins>=60?`${Math.floor(mins/60)}h${mins%60}m`:`${mins}m`;}else el.textContent='—';});const route=results[activeMode];if(route){routeLayer=L.geoJSON(route.geometry,{style:{color:activeMode==='drive'?'#185FA5':activeMode==='walk'?'#4CAF50':'#FF9800',weight:5,opacity:0.9}}).addTo(map);dirFromMarker=L.marker([dirFromCoords.lat,dirFromCoords.lng],{icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#1D9E75;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map);dirToMarker=L.marker([dirToCoords.lat,dirToCoords.lng],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;background:#1a1a18;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}).addTo(map).bindPopup(`<b>${dirToCoords.name}</b>`);map.fitBounds(routeLayer.getBounds(),{padding:[60,60]});const dist=(route.distance/1000).toFixed(1);const mins=Math.round(route.duration/60);const timeStr=mins>=60?`${Math.floor(mins/60)}h ${mins%60}m`:`${mins} min`;document.getElementById('dp-routes').innerHTML=`<div class="dp-route selected"><div class="dp-route-top"><div class="dp-route-time">${timeStr}</div></div><div class="dp-route-sub">${dist} km · ${activeMode} route</div></div>`;}}catch(e){document.getElementById('dp-routes').innerHTML='<p style="font-size:13px;color:var(--red);text-align:center;padding:16px">❌ Could not find route</p>';}}
-function startNavigation(){if(!dirFromCoords||!dirToCoords){showToast('⚠️ Set both start and destination');return;}showToast('🗺️ Navigation started! Follow the blue route.');}
+async function fetchRoutes(){if(!dirFromCoords||!dirToCoords)return;if(routeLayer)map.removeLayer(routeLayer);if(dirFromMarker)map.removeLayer(dirFromMarker);if(dirToMarker)map.removeLayer(dirToMarker);document.getElementById('dp-routes').innerHTML='<p style="font-size:13px;color:var(--mu);text-align:center;padding:16px">Finding routes...</p>';try{const osrmProfile={drive:'driving',walk:'foot',cycle:'cycling'};const results={};for(const m of['drive','walk','cycle']){try{const r=await fetch(`https://router.project-osrm.org/route/v1/${osrmProfile[m]}/${dirFromCoords.lng},${dirFromCoords.lat};${dirToCoords.lng},${dirToCoords.lat}?overview=full&geometries=geojson`);const d=await r.json();if(d.routes&&d.routes[0])results[m]=d.routes[0];}catch(e){}}['drive','walk','cycle'].forEach(m=>{const el=document.getElementById('mode-'+m+'-time');if(results[m]){const mins=Math.round(results[m].duration/60);el.textContent=mins>=60?`${Math.floor(mins/60)}h${mins%60}m`:`${mins}m`;}else el.textContent='—';});const route=results[activeMode];if(route){routeLayer=L.geoJSON(route.geometry,{style:{color:activeMode==='drive'?'#185FA5':activeMode==='walk'?'#4CAF50':'#FF9800',weight:5,opacity:0.9}}).addTo(map);dirFromMarker=L.marker([dirFromCoords.lat,dirFromCoords.lng],{icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#1D9E75;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map);dirToMarker=L.marker([dirToCoords.lat,dirToCoords.lng],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;background:#1a1a18;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}).addTo(map).bindPopup(`<b>${dirToCoords.name}</b>`);map.fitBounds(routeLayer.getBounds(),{padding:[60,60]});const dist=(route.distance/1000).toFixed(1);const mins=Math.round(route.duration/60);document.getElementById('dp-routes').innerHTML=`<div class="dp-route selected"><div class="dp-route-time">${mins>=60?Math.floor(mins/60)+'h '+mins%60+'m':mins+' min'}</div><div class="dp-route-sub">${dist} km · ${activeMode}</div></div>`;}}catch(e){document.getElementById('dp-routes').innerHTML='<p style="font-size:13px;color:var(--red);text-align:center;padding:16px">❌ Could not find route</p>';}}
+function startNavigation(){if(!dirFromCoords||!dirToCoords){showToast('⚠️ Set both start and destination');return;}showToast('🗺️ Follow the route on the map!');}
 const ADMIN_STYLES={4:{color:'#1D9E75',weight:3,fillOpacity:0.06,fillColor:'#1D9E75'},5:{color:'#185FA5',weight:2,fillOpacity:0.05,fillColor:'#185FA5'},6:{color:'#BA7517',weight:1.2,fillOpacity:0.04,fillColor:'#BA7517',dashArray:'4,4'},7:{color:'#A32D2D',weight:1,fillOpacity:0,fillColor:'#A32D2D',dashArray:'3,5'}};
 const adminLayers={};const loadedLevels=new Set();
 function setStatus(msg){const el=document.getElementById('status');if(msg){el.textContent=msg;el.style.display='block';}else el.style.display='none';}
